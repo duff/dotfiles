@@ -18,7 +18,7 @@ export PAGER=most
 export GIT_EDITOR="vim -f"
 export EDITOR='mvim -f'
 
-export RIAK_HOME="/Users/duff/develop/riak"
+export RIAK_HOME="/Users/duff/code/riak"
 
 ulimit -n 1024
 
