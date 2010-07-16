@@ -1,34 +1,78 @@
-
-function git_prompt_info {
-  local ref=$(git symbolic-ref HEAD 2> /dev/null)
+function git_status_prompt() {
   local gitst="$(git status 2> /dev/null)"
-  local pairname=$(git config --get user.initials)
-  if [[ (${pairname} == 'do') || ( ${pairname} == '') ]]; then
-    pairname=''
-  else
-    pairname=" ($pairname)"
-  fi
-
   if [[ -f .git/MERGE_HEAD ]]; then
     if [[ ${gitst} =~ "unmerged" ]]; then
-      gitstatus=" %{$fg[red]%}unmerged%{$reset_color%}"
+      echo " %{$fg[red]%}unmerged%{$reset_color%}"
     else
-      gitstatus=" %{$fg[green]%}merged%{$reset_color%}"
+      echo " %{$fg[green]%}merged%{$reset_color%}"
     fi
   elif [[ ${gitst} =~ "Changes to be committed" ]]; then
-    gitstatus=" %{$fg[blue]%}!%{$reset_color%}"
+    echo " %{$fg[blue]%}!%{$reset_color%}"
   elif [[ ${gitst} =~ "use \"git add" ]]; then
-    gitstatus=" %{$fg[red]%}!%{$reset_color%}"
+    echo " %{$fg[red]%}!%{$reset_color%}"
   elif [[ -n `git checkout HEAD 2> /dev/null | grep ahead` ]]; then
-    gitstatus=" %{$fg[yellow]%}*%{$reset_color%}"
+    echo " %{$fg[yellow]%}*%{$reset_color%}"
   else
-    gitstatus=''
-  fi
-
-  if [[ -n $ref ]]; then
-    echo "%{$fg[yellow]%}${ref#refs/heads/}%{$reset_color%}$gitstatus$pairname "
+    echo ''
   fi
 }
 
-PROMPT='[ %{$fg[green]%~%<< ${reset_color}] $(git_prompt_info)${PR_BOLD_WHITE}>%{${reset_color}%} '
+function pair_prompt {
+  local pairname=$(git config --get user.initials)
+  if [[ (${pairname} == 'do') || ( ${pairname} == '') ]]; then
+    echo ''
+  else
+    echo " ($pairname)"
+  fi
+}
+
+function git_branch_prompt () {
+  if which git > /dev/null; then
+    local g="$(git rev-parse --git-dir 2>/dev/null)"
+    if [ -n "$g" ]; then
+        
+      local r
+      local b
+      if [ -d "$g/rebase-apply" ]; then
+        if test -f "$g/rebase-apply/rebasing"; then
+          r="|REBASE"
+        elif test -f "$g/rebase-apply/applying"; then
+          r="|AM"
+        else
+          r="|AM/REBASE"
+        fi
+        b="$(git symbolic-ref HEAD 2>/dev/null)"
+      elif [ -f "$g/rebase-merge/interactive" ]; then
+        r="|REBASE-i"
+        b="$(cat "$g/rebase-merge/head-name")"
+      elif [ -d "$g/rebase-merge" ]; then
+        r="|REBASE-m"
+        b="$(cat "$g/rebase-merge/head-name")"
+      elif [ -f "$g/MERGE_HEAD" ]; then
+        r="|MERGING"
+        b="$(git symbolic-ref HEAD 2>/dev/null)"
+      else
+        if [ -f "$g/BISECT_LOG" ]; then
+          r="|BISECTING"
+        fi
+        if ! b="$(git symbolic-ref HEAD 2>/dev/null)"; then
+          if ! b="$(git describe --exact-match HEAD 2>/dev/null)"; then
+            b="$(cut -c1-7 "$g/HEAD")..."
+          fi
+        fi
+      fi
+      
+      echo " %{$fg[yellow]%}${b##refs/heads/}$r%{$reset_color%}"
+    fi
+  else
+    echo ''
+  fi
+}
+
+function dir_prompt {
+  echo "[ %{$fg[green]%~%<< ${reset_color}]"
+}
+
+
+PROMPT='$(dir_prompt)$(git_branch_prompt)$(git_status_prompt)$(pair_prompt) > '
 
