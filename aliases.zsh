@@ -14,13 +14,13 @@ alias ll='ls -GFhl'
 alias ss='./script/server'
 alias sc='./script/console'
 alias vi='vim'
-alias gl='git log --no-merges --pretty=format:"* %s (%cn) %b"'
-# alias gvim='mvim -p'
 
+alias gl='git log --no-merges --pretty=format:"* %s (%cn) %b"'
 alias gb='git branch -a -v'
 alias gs='git status'
 alias gcm='git commit'
-alias gc='git co master'
 alias ga='git add .'
+
 alias r='rails'
 
+# alias gvim='mvim -p'
