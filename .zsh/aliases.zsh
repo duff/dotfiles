@@ -21,6 +21,7 @@ alias gs='git status'
 alias gcm='git commit'
 alias ga='git add .'
 
+alias bir='bundle install --relock'
 alias r='rails'
 
 # alias gvim='mvim -p'
