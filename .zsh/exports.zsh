@@ -12,9 +12,6 @@ export CLICOLOR=1
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='3;33'
 
-# Enable color, and better prompt in LESS
-export PAGER=most
-
 export GIT_EDITOR="vim -f"
 export EDITOR='mvim -f'
 
