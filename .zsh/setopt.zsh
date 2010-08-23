@@ -4,7 +4,7 @@
 setopt AUTO_CD
 
 # Help us out with basic spelling correction for commands
-setopt CORRECT
+# setopt CORRECT
 
 # cd does a pushd which lets you do a popd without having to think about it before you need it.
 setopt AUTOPUSHD
