@@ -10,4 +10,4 @@ bindkey "^A"      beginning-of-line                    # ctrl-a
 bindkey "^E"      end-of-line                          # ctrl-e
 bindkey "∆"       history-search-forward               # down arrow mapped to Option-j
 bindkey "˚"       history-search-backward              # up arrow mapped to Option-k
-bindkey "…"       vi-cmd-mode                          # option-; to go to normal mode w/o leaving home row
+bindkey "¬"       vi-cmd-mode                          # option-l to go to normal mode w/o leaving home row
