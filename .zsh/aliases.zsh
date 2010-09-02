@@ -27,5 +27,7 @@ alias r='rails'
 
 # Misc
 alias sz='source ~/.zshrc'
+alias listening_ports='lsof -i -n -P | grep LISTEN'   # Show which processes are using which ports
+
 
 # alias gvim='mvim -p'
