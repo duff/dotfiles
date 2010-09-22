@@ -22,8 +22,9 @@ alias gcm='git commit'
 alias ga='git add .'
 
 # Rails
-alias bir='bundle install --relock'
+alias bi='bundle install'
 alias r='rails'
+alias be='bundle exec'
 
 # Misc
 alias sz='source ~/.zshrc'
