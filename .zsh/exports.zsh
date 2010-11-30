@@ -17,6 +17,6 @@ export EDITOR='mvim -f'
 
 export RIAK_HOME="/Users/duff/code/riak"
 
-ulimit -n 2056
+ulimit -n 2048
 
 
