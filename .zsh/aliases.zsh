@@ -26,6 +26,7 @@ alias r='rails'
 
 # Pow
 alias pow-restart='touch tmp/restart.txt'
+alias pow-debug-restart='touch tmp/debug.txt; pow-restart'
 alias pow-list='ls -lh ~/.pow/'
 
 # Bundler
