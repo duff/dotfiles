@@ -23,7 +23,10 @@ alias ga='git add .'
 
 # Rails
 alias r='rails'
-alias be='bundle exec'
+
+# Pow
+alias pow-restart='touch tmp/restart.txt'
+alias pow-list='ls -lh ~/.pow/'
 
 # Bundler
 alias b='bundle'
