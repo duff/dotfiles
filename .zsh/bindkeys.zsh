@@ -11,5 +11,4 @@ bindkey "^E"      end-of-line                          # ctrl-e
 bindkey "∆"       history-search-forward               # down arrow mapped to Option-j
 bindkey "˚"       history-search-backward              # up arrow mapped to Option-k
 bindkey "¬"       vi-cmd-mode                          # maps to escape to go to normal mode Option-l
-bindkey "jj"      vi-cmd-mode                          # maps to escape to go to normal mode
 bindkey ";;"      vi-cmd-mode                          # maps to escape to go to normal mode
