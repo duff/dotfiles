@@ -34,6 +34,9 @@ alias b='bundle'
 alias bi='b install --path .bundle'
 alias be='b exec'
 
+# Foreman
+alias foreman-start='bundle exec foreman start -c web=0'
+
 # Misc
 alias sz='source ~/.zshrc'
 alias listening_ports='lsof -i -n -P | grep LISTEN'   # Show which processes are using which ports
