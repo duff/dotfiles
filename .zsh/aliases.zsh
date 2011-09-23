@@ -15,7 +15,7 @@ alias sc='./script/console'
 alias vi='vim'
 
 # Git stuff
-alias gl='git log --no-merges --pretty=format:"* %s (%cn) %b"'
+alias gl='git log --no-merges --pretty=format:"* %s %b (%cn)"'
 alias gb='git branch -a -v'
 alias gs='git status'
 alias gcm='git commit'
