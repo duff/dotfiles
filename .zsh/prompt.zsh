@@ -10,8 +10,8 @@ function git_status_prompt() {
     echo " %{$fg[blue]%}!%{$reset_color%}"
   elif [[ ${gitst} =~ "use \"git add" ]]; then
     echo " %{$fg[red]%}!%{$reset_color%}"
-  elif [[ -n `git checkout HEAD 2> /dev/null | grep ahead` ]]; then
-    echo " %{$fg[yellow]%}*%{$reset_color%}"
+  # elif [[ -n `git checkout HEAD 2> /dev/null | grep ahead` ]]; then
+  #   echo " %{$fg[yellow]%}*%{$reset_color%}"
   else
     echo ''
   fi
