@@ -24,6 +24,9 @@ alias ga='git add .'
 # Rails
 alias r='rails'
 
+# Cucumber
+alias cuke="bundle exec cucumber -r features"
+
 # Pow
 alias pow-restart='touch tmp/restart.txt'
 alias pow-debug-restart='touch tmp/debug.txt; pow-restart'
