@@ -34,7 +34,7 @@ alias pow-list='ls -lh ~/.pow/'
 
 # Bundler
 alias b='bundle'
-alias bi='b install --path .bundle'
+alias bi='b install --path vendor'
 alias be='b exec'
 
 # Foreman

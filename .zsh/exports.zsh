@@ -1,4 +1,4 @@
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$HOME/bin:/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/Users/duff/.rbenv/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$HOME/bin:/opt/local/bin:/opt/local/sbin:$PATH
 
 # Our list of directorys we can cd to from anywhere
 export CDPATH=.:~/code
@@ -15,7 +15,7 @@ export GREP_COLOR='3;33'
 export GIT_EDITOR="mvim -f"
 export EDITOR='mvim -f'
 
-export RIAK_HOME="/Users/duff/code/riak"
+# export RIAK_HOME="/Users/duff/code/riak"
 
 ulimit -n 2048
 
