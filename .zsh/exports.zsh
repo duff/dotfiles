@@ -15,7 +15,7 @@ export GREP_COLOR='3;33'
 export GIT_EDITOR="mvim -f"
 export EDITOR='mvim -f'
 
-# export RIAK_HOME="/Users/duff/code/riak"
+export RIAK_HOME="/Users/duff/code/riak"
 
 ulimit -n 2048
 
