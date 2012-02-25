@@ -12,10 +12,10 @@ export CLICOLOR=1
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='3;33'
 
-export GIT_EDITOR="mvim -f"
-export EDITOR='mvim -f'
+export GIT_EDITOR="vim"
+export EDITOR='vim'
 
-export RIAK_HOME="/Users/duff/code/riak"
+# export RIAK_HOME="/Users/duff/code/riak"
 
 ulimit -n 2048
 
