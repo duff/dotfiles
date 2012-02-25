@@ -13,10 +13,10 @@ setopt AUTOPUSHD
 # ===== History
 
 # Allow multiple terminal sessions to all append to one zsh command history
-setopt APPEND_HISTORY 
+setopt APPEND_HISTORY
 
 # Add comamnds as they are typed, don't wait until shell exit
-setopt INC_APPEND_HISTORY 
+setopt INC_APPEND_HISTORY
 
 # Do not write events to history that are duplicates of previous events
 setopt HIST_IGNORE_DUPS
@@ -35,13 +35,13 @@ setopt SHARE_HISTORY
 
 
 
-# ===== Completion 
+# ===== Completion
 
 # Allow completion from within a word/phrase
-setopt COMPLETE_IN_WORD 
+setopt COMPLETE_IN_WORD
 
 # When completing from the middle of a word, move the cursor to the end of the word
-setopt ALWAYS_TO_END            
+setopt ALWAYS_TO_END
 
 
 
