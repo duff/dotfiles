@@ -10,8 +10,6 @@ alias ls='ls -GFh'
 # Same as above, but in long listing format
 alias ll='ls -GFhl'
 
-alias ss='./script/server'
-alias sc='./script/console'
 alias vi='vim'
 
 # Git stuff
@@ -30,19 +28,12 @@ alias cuke="bundle exec cucumber -r features"
 # Pow
 alias pow-restart='touch tmp/restart.txt'
 alias pow-debug-restart='touch tmp/debug.txt; pow-restart'
-alias pow-list='ls -lh ~/.pow/'
 
 # Bundler
 alias b='bundle'
-alias bi='b install --path vendor'
-alias be='b exec'
-
-# Foreman
-alias foreman-start='bundle exec foreman start -c web=0'
+alias bi='bundle install --path vendor'
+alias be='bundle exec'
 
 # Misc
-alias sz='source ~/.zshrc'
 alias listening_ports='lsof -i -n -P | grep LISTEN'   # Show which processes are using which ports
 
-
-# alias gvim='mvim -p'
