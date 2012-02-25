@@ -9,5 +9,6 @@ source ~/.zsh/bindkeys.zsh
 source ~/.zsh/history.zsh
 source ~/.zsh/edit_command_line.zsh
 source ~/.zsh/zsh_hooks.zsh
+source ~/.zsh/bundle_exec.zsh
 
 # if [[ -s /Users/duff/.rvm/scripts/rvm ]] ; then source /Users/duff/.rvm/scripts/rvm ; fi
