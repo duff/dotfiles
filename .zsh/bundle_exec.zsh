@@ -1,4 +1,4 @@
-BUNDLED_COMMANDS=(rails rake rspec ruby sass sass-convert spec spork cucumber)
+BUNDLED_COMMANDS=(rails rake rspec ruby sass sass-convert spec spork cucumber testdrb cap)
 
 is-bundler-installed()
 {
