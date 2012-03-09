@@ -10,8 +10,6 @@ alias ls='ls -GFh'
 # Same as above, but in long listing format
 alias ll='ls -GFhl'
 
-alias vi='vim'
-
 # Git stuff
 alias gl='git log --no-merges --pretty=format:"* %s %b (%cn)"'
 alias gb='git branch -a -v'
