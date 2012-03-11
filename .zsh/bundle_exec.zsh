@@ -1,29 +1,34 @@
-BUNDLED_COMMANDS=(rails rake rspec ruby sass sass-convert spec spork cucumber testdrb cap)
+bundled_commands=(annotate cap capify cucumber ey foreman guard heroku middleman rackup rails rake rspec ruby shotgun spec spork thin thor unicorn unicorn_rails)
 
-is-bundler-installed()
-{
+## Functions
+
+_bundler-installed() {
   which bundle > /dev/null 2>&1
 }
 
-is-within-bundled-project()
-{
-  local dir="$(pwd)"
-  while [ "$(dirname $dir)" != "/" ]; do
-    [ -f "$dir/Gemfile" ] && return
-    dir="$(dirname $dir)"
+_within-bundled-project() {
+  local check_dir=$PWD
+  while [ $check_dir != "/" ]; do
+    [ -f "$check_dir/Gemfile" ] && return
+    check_dir="$(dirname $check_dir)"
   done
   false
 }
 
-run-with-bundler()
-{
-  if is-bundler-installed && is-within-bundled-project; then
+_run-with-bundler() {
+  if _bundler-installed && _within-bundled-project; then
     bundle exec $@
   else
     $@
   fi
 }
 
-for CMD in $BUNDLED_COMMANDS; do
-  alias $CMD="run-with-bundler $CMD"
+## Main program
+for cmd in $bundled_commands; do
+  eval "function bundled_$cmd () { _run-with-bundler $cmd \$@}"
+  alias $cmd=bundled_$cmd
+
+  if which _$cmd > /dev/null 2>&1; then
+        compdef _$cmd bundled_$cmd=$cmd
+  fi
 done
