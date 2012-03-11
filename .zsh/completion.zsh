@@ -12,7 +12,7 @@ zstyle ':vcs_info:*' enable git
 
 # Enable completion caching, use rehash to clear
 zstyle ':completion::complete:*' use-cache on
-zstyle ':completion::complete:*' cache-path ~/.zsh/cache/$HOST
+zstyle ':completion::complete:*' cache-path ~/.zsh/cache
 
 # Fallback to built in ls colors
 zstyle ':completion:*' list-colors ''
