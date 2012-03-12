@@ -1,4 +1,4 @@
-bundled_commands=(annotate cap capify cucumber ey foreman guard heroku middleman rackup rails rake rspec ruby shotgun spec spork thin thor unicorn unicorn_rails)
+bundled_commands=(cap capify cucumber ey foreman guard heroku rails rake rspec ruby spec spork testdrb unicorn unicorn_rails)
 
 ## Functions
 
