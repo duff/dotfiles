@@ -1,4 +1,4 @@
-bundled_commands=(cap capify cucumber ey foreman guard heroku rails rake rspec ruby spec spork testdrb unicorn unicorn_rails)
+bundled_commands=(cap capify cucumber ey foreman guard heroku rails rake rspec ruby spec spork testdrb unicorn unicorn_rails serve)
 
 ## Functions
 
