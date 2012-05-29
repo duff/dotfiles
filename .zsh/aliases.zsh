@@ -11,11 +11,8 @@ alias ls='ls -GFh'
 alias ll='ls -GFhl'
 
 # Git stuff
-alias gl='git log --no-merges --pretty=format:"* %s %b (%cn)"'
 alias gb='git branch -a -v'
 alias gs='git status'
-alias gcm='git commit'
-alias ga='git add .'
 
 # Rails
 alias r='rails'
