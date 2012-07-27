@@ -4,7 +4,7 @@ function git_status_prompt() {
     if [[ ${gitst} =~ "unmerged" ]]; then
       echo " %{$fg[red]%}unmerged%{$reset_color%}"
     else
-      echo " %{$fg[green]%}merged%{$reset_color%}"
+      echo " %{$fg[cyan]%}merged%{$reset_color%}"
     fi
   elif [[ ${gitst} =~ "Changes to be committed" ]]; then
     echo " %{$fg[blue]%}!%{$reset_color%}"
@@ -70,7 +70,7 @@ function git_branch_prompt () {
 }
 
 function dir_prompt {
-  echo "[ %{$fg[green]%~%<< ${reset_color}]"
+  echo "[ %{$fg[cyan]%~%<< ${reset_color}]"
 }
 
 
