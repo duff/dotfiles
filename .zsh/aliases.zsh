@@ -22,7 +22,6 @@ alias cuke="bundle exec cucumber -r features"
 
 # Pow
 alias pow-restart='touch tmp/restart.txt'
-alias pow-debug-restart='touch tmp/debug.txt; pow-restart'
 
 # Bundler
 alias b='bundle'
@@ -33,3 +32,9 @@ alias listening_ports='lsof -i -n -P | grep LISTEN'   # Show which processes are
 
 # zmv
 alias mmv='noglob zmv -W'
+
+# zeus
+alias zg='zeus generate'
+alias zc='zeus console'
+alias zr='zeus rspec'
+alias zk='zeus rake'
