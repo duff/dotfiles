@@ -79,5 +79,5 @@ function dir_prompt {
 }
 
 
-PROMPT='$(dir_prompt)$(git_branch_prompt)$(git_status_prompt)$(pair_prompt) > '
+PROMPT='$(dir_prompt)$(git_branch_prompt)$(git_status_prompt)$(pair_prompt) $(colorize ">") '
 
