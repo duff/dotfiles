@@ -69,8 +69,13 @@ function git_branch_prompt () {
   fi
 }
 
+function colorize() {
+  local c="${${KEYMAP/vicmd/yellow}/(main|viins)/gray}"
+  echo "%{$fg[$c]%}$1%{$reset_color%}"
+}
+
 function dir_prompt {
-  echo "[ %{$fg[cyan]%~%<< ${reset_color}]"
+  echo "$(colorize [) %{$fg[cyan]%~%<< ${reset_color}$(colorize ])"
 }
 
 
