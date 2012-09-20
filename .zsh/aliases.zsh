@@ -36,5 +36,6 @@ alias mmv='noglob zmv -W'
 # zeus
 alias zg='zeus generate'
 alias zc='zeus console'
-alias zr='zeus rspec'
+alias zt='zeus test'
 alias zk='zeus rake'
+alias zu='zeus cucumber'
