@@ -1,7 +1,7 @@
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$HOME/bin:/opt/local/bin:/opt/local/sbin:$PATH
 
 # Our list of directories we can cd to from anywhere
-export CDPATH=.:~/code
+export CDPATH=.:~/code:~/code/spreedly
 
 # Setup terminal, and turn on colors
 export TERM=xterm-color
