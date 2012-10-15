@@ -3,7 +3,7 @@ bundled_commands=(cap capify cucumber ey foreman guard heroku rails rake rspec r
 ## Functions
 
 _bundler-installed() {
-  which bundle > /dev/null 2>&1
+  bundle -v > /dev/null 2>&1
 }
 
 _within-bundled-project() {
