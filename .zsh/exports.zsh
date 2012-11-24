@@ -1,4 +1,4 @@
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$HOME/bin:/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$HOME/bin:/opt/local/bin:/opt/local/sbin:/usr/local/heroku/bin:$PATH
 
 # Our list of directories we can cd to from anywhere
 export CDPATH=.:~/code:~/code/spreedly
