@@ -17,15 +17,6 @@ function git_status_prompt() {
   fi
 }
 
-function pair_prompt {
-  local pairname=$(git config --get user.initials)
-  if [[ (${pairname} == 'do') || ( ${pairname} == '') ]]; then
-    echo ''
-  else
-    echo " ($pairname)"
-  fi
-}
-
 function git_branch_prompt () {
   if which git > /dev/null; then
     local g="$(git rev-parse --git-dir 2>/dev/null)"
@@ -79,5 +70,5 @@ function dir_prompt {
 }
 
 
-PROMPT='$(dir_prompt)$(git_branch_prompt)$(git_status_prompt)$(pair_prompt) $(colorize ">") '
+PROMPT='$(dir_prompt)$(git_branch_prompt)$(git_status_prompt) $(colorize ">") '
 
