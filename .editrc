@@ -1,4 +1,4 @@
-bind -v
-bind "^R" em-inc-search-prev
-bind "^i" rl_complete
-bind "^p" ed-command
+bind -v                            # vim keybindings
+bind "^R" em-inc-search-prev       # ctrl-r search
+bind "^i" rl_complete              # for tab completion
+bind "^p" ed-command               # libedit command mode
