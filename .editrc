@@ -1,3 +1,4 @@
 bind -v
 bind "^R" em-inc-search-prev
-bind \\t rl_complete
+bind "^i" rl_complete
+bind "^p" ed-command
