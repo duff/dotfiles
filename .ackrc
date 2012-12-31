@@ -1,0 +1,8 @@
+--type-add=ruby=.haml,.rake,.feature,.snippet,.sass,.scss,.slim,.markdown,.textile
+--ignore-dir=coverage
+--ignore-dir=vendor/ruby
+--ignore-dir=.bundle/ruby
+--ignore-dir=tmp
+--ignore-dir=public/assets
+--ignore-dir=vendor/assets
+
