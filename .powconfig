@@ -1,0 +1,2 @@
+export POW_TIMEOUT=43200000
+export POW_WORKERS=1
