@@ -1,9 +1,6 @@
 
 alias g='git'
 
-# Override macports ssh in case it gets pulled in as a dependency
-alias ssh='/usr/bin/ssh'
-
 # Colorize output, add file type indicator, and put sizes in human readable format
 alias ls='ls -GFh'
 
@@ -36,6 +33,6 @@ alias mmv='noglob zmv -W'
 # zeus
 alias zg='zeus generate'
 alias zc='zeus console'
-alias zr='zeus test'
+alias zt='zeus test'
 alias zr='zeus rake'
 alias zu='zeus cucumber'
