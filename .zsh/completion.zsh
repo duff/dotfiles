@@ -1,6 +1,8 @@
 
 # add custom completion scripts
 fpath=(~/.zsh/completion $fpath)
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 autoload -U compinit && compinit
 zmodload -i zsh/complist
 
