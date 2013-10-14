@@ -17,7 +17,7 @@ export EDITOR='vim'
 
 # export RIAK_HOME="/Users/duff/code/riak"
 
-ulimit -n 2048
+ulimit -n 4048
 
 # For performance improvements
 # http://snaprails.tumblr.com/post/241746095/rubys-gc-configuration
