@@ -4,3 +4,4 @@ tmp/*
 vendor/ruby
 public/assets
 vendor/assets
+.git/
