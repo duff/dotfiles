@@ -5,3 +5,6 @@ vendor/ruby
 public/assets
 vendor/assets
 .git/
+_build
+
+
