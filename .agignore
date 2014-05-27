@@ -1,10 +1,11 @@
 app/assets/fonts/*
 log/*
 tmp/*
-vendor/ruby
+vendor/ruby/*
 public/assets
 vendor/assets
 .git/
 _build
-
+deps/*
+.build/
 
