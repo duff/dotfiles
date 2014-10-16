@@ -53,7 +53,7 @@ function git_branch_prompt () {
         fi
       fi
 
-      echo " %{$fg[yellow]%}${b##refs/heads/}$r%{$reset_color%}"
+      echo " %{$fg_no_bold[yellow]%}${b##refs/heads/}$r%{$reset_color%}"
     fi
   else
     echo ''
