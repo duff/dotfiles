@@ -10,6 +10,5 @@ source ~/.zsh/history.zsh
 source ~/.zsh/edit_command_line.zsh
 source ~/.zsh/zsh_hooks.zsh
 source ~/.zsh/bundle_exec.zsh
-source ~/.zsh/hub.zsh
 source ~/.zsh/zmv.zsh
 
