@@ -1,4 +1,4 @@
-bundled_commands=(cap cucumber foreman guard ruby rspec pry-remote kensa middleman)
+bundled_commands=(cap cucumber foreman guard ruby rspec pry-remote kensa middleman rake rails)
 
 ## Functions
 
