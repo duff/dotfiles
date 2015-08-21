@@ -71,5 +71,6 @@ function dir_prompt {
 
 
 PROMPT='
-$(dir_prompt)$(git_branch_prompt)$(git_status_prompt) $(colorize "✦")  '
+$(dir_prompt)$(git_branch_prompt)$(git_status_prompt)
+$(colorize "✦")  '
 
