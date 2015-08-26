@@ -53,7 +53,7 @@ function git_branch_prompt () {
         fi
       fi
 
-      echo " %{$fg_no_bold[yellow]%}${b##refs/heads/}$r%{$reset_color%}"
+      echo " %{$fg[yellow]%}${b##refs/heads/}$r%{$reset_color%}"
     fi
   else
     echo ''
@@ -66,7 +66,7 @@ function colorize() {
 }
 
 function dir_prompt {
-  echo "$(colorize [) %{$fg[cyan]%~%<< ${reset_color}$(colorize ])"
+  echo "$(colorize [) %{$fg[blue]%~%<< ${reset_color}$(colorize ])"
 }
 
 
