@@ -20,4 +20,3 @@ export EDITOR='vim'
 ulimit -n 4048
 
 export DOCKER_MEMORY='1024'
-eval $(dvm env)
