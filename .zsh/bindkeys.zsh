@@ -14,4 +14,3 @@ bindkey "˚"       history-search-backward              # up arrow mapped to Opt
 bindkey "¬"       vi-cmd-mode                          # maps to escape to go to normal mode Option-l
 bindkey ";;"      vi-cmd-mode                          # maps to escape to go to normal mode
 
-

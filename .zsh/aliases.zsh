@@ -24,3 +24,5 @@ alias listening_ports='lsof -i -n -P | grep LISTEN'   # Show which processes are
 alias mmv='noglob zmv -W'
 
 alias emax='open -a /Applications/Emacs.app $1'
+
+alias services=$HOME/spreedly/dev-services/bin/services
