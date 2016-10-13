@@ -12,3 +12,4 @@ source ~/.zsh/zsh_hooks.zsh
 source ~/.zsh/bundle_exec.zsh
 source ~/.zsh/zmv.zsh
 
+eval "$(rbenv init -)"
