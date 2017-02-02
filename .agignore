@@ -8,4 +8,6 @@ vendor/assets
 _build
 deps/*
 .build/
-
+node_modules/*
+priv/static/js/*
+priv/static/css/*
