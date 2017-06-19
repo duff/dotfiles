@@ -1,4 +1,6 @@
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$HOME/bin:/opt/local/bin:/opt/local/sbin:$HOME/.node/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
+GPG1_DIR=$(brew --prefix gpg1)/libexec/gpgbin
+
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$HOME/bin:/opt/local/bin:/opt/local/sbin:$HOME/.node/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:${GPG1_DIR}:$PATH
 
 # Our list of directories we can cd to from anywhere
 export CDPATH=.:~/code:~/spreedly
