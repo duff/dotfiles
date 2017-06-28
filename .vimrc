@@ -5,13 +5,16 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
 Plugin 'AndrewRadev/switch.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'duff/vim-trailing-whitespace'
 Plugin 'duff/vim-scratch'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'pangloss/vim-javascript'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'xolox/vim-session'
+Plugin 'xolox/vim-misc'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-rake'
@@ -20,7 +23,6 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-endwise'
-Plugin 'vim-ruby/vim-ruby'
 call vundle#end()
 
 filetype plugin indent on
@@ -183,6 +185,10 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 nnoremap <leader>f :CtrlP<CR>
 nnoremap <leader>F :CtrlPClearCache<CR>:CtrlP<CR>
 
+" --------------------------------------------------
+" Session shortcuts
+" --------------------------------------------------
+nnoremap <leader>p :OpenSession<space>
 
 " --------------------------------------------------
 " Normal mode shortcuts
@@ -333,9 +339,9 @@ autocmd BufReadPost *
   \   exe "normal! g`\"" |
   \ endif
 
-" ---------------------------------------------------------------------------
+" --------------------------------------------------
 "  Omnicomplete
-" ---------------------------------------------------------------------------
+" --------------------------------------------------
 set ofu=syntaxcomplete#Complete
 
 
@@ -352,3 +358,13 @@ function! HandleURI()
   endif
 endfunction
 nmap <Leader>b :call HandleURI()<CR>
+
+" --------------------------------------------------
+"  Vim-session customization
+" --------------------------------------------------
+let g:session_autosave = 'yes'
+let g:session_lock_enabled = 0
+let g:session_autosave_silent = 1
+let g:session_autosave_periodic = 2
+
+
