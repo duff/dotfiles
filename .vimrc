@@ -297,7 +297,7 @@ syntax on
 " --------------------------------------------------
 "  Ignored wildcards
 " --------------------------------------------------
-set wildignore+=*/.git/*,*/deps/*,*/_build/*
+set wildignore+=*/.git/*,*/deps/*,*/_build/*,*/vendor/*
 
 " --------------------------------------------------
 "  CtrlP customization
