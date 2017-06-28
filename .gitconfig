@@ -41,6 +41,7 @@
   ps = push
   s = status
   rmd = rm `git ls-files --deleted`
+	ctags = !.git/hooks/ctags
 
 [apply]
   whitespace = nowarn
