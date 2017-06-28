@@ -1,0 +1,87 @@
+[user]
+ name = Duff O'Melia
+ email = duff@omelia.org
+ signingkey = 30AB6678
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+  meta = yellow
+  frag = magenta
+  old = red
+  new = green
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+
+[alias]
+  aa = add --all
+  b = branch -a -vv
+  d = diff
+  di = diff
+  div = divergence
+  dc = diff --cached
+  co = checkout
+  cm = commit
+  ff = merge --ff-only
+  l = "!pretty_git_log"
+  la = !git l --all
+  r = !git l -38
+  ra = !git r --all
+  ps = push
+  s = status
+  rmd = rm `git ls-files --deleted`
+
+[apply]
+  whitespace = nowarn
+
+[branch]
+  autosetupmerge = true
+
+[merge]
+  tool = Kaleidoscope
+
+[mergetool "mvim"]
+  cmd=mvim -d -g $LOCAL $MERGED $REMOTE
+  keepbackup=false
+
+[push]
+  default = simple
+
+[github]
+  user = duff
+
+[init]
+  templatedir = ~/.git_template
+
+[core]
+  excludesfile = /Users/duff/.gitignore
+
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[diff]
+  tool = Kaleidoscope
+
+[difftool]
+  prompt = false
+
+[mergetool]
+  prompt = false
+
+[filter "media"]
+  clean = git media clean %f
+  smudge = git media smudge %f
+  required = true
