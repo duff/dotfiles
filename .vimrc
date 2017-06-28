@@ -6,6 +6,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'mileszs/ack.vim'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'AndrewRadev/switch.vim'
@@ -29,6 +30,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-commentary'
 
 call vundle#end()
 
@@ -213,6 +215,13 @@ noremap gl g_
 noremap gh ^
 
 " --------------------------------------------------
+" ack/ag shortcuts
+" --------------------------------------------------
+nnoremap <leader>A :Ack<cword><CR>
+nnoremap <leader>a :Ack<space>
+vmap <leader>A "ry:Ack<space>"<C-r>r"<CR>
+
+" --------------------------------------------------
 " Ctags shortcuts
 " --------------------------------------------------
 nmap <C-\> <C-]>
@@ -383,3 +392,9 @@ let g:airline_section_y=''
 let g:airline_section_z='%3v'
 let g:airline_theme='cool'
 let g:airline_skip_empty_sections = 1
+
+
+" --------------------------------------------------
+" Use the silver searcher
+" --------------------------------------------------
+let g:ackprg = 'ag --vimgrep'
