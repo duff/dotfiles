@@ -12,7 +12,7 @@ set number                " show line numbers
 
 set background=dark
 colorscheme base16-custom
-set guifont=Hack:h11
+set guifont=Hack:h12
 
 " set guifont=Bitstream\ Vera\ Sans\ Mono:h12
 " set guifont=Monaco:h11
