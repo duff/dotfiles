@@ -1,6 +1,7 @@
 " ---------------------------------------------------------------------------
 " Vundle
 " ---------------------------------------------------------------------------
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
@@ -10,6 +11,9 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'duff/vim-trailing-whitespace'
 Plugin 'duff/vim-scratch'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'kana/vim-textobj-user'
+Plugin 'andyl/vim-textobj-elixir'
+Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-ruby/vim-ruby'
@@ -23,16 +27,16 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-endwise'
-call vundle#end()
 
-filetype plugin indent on
+call vundle#end()
 
 
 " ---------------------------------------------------------------------------
 " General
 " ---------------------------------------------------------------------------
-filetype off
 set nocompatible
+runtime macros/matchit.vim
+filetype plugin indent on
 let mapleader = ","
 set history=1000                              " lots of command line history
 set autoread                                  " reload files changed outside of Vim
