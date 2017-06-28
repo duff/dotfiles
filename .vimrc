@@ -373,4 +373,13 @@ let g:session_lock_enabled = 0
 let g:session_autosave_silent = 1
 let g:session_autosave_periodic = 2
 
-
+" --------------------------------------------------
+" Airline configuation
+" --------------------------------------------------
+let g:airline_powerline_fonts=1
+let g:airline_extensions = []
+let g:airline_section_b=''
+let g:airline_section_y=''
+let g:airline_section_z='%3v'
+let g:airline_theme='cool'
+let g:airline_skip_empty_sections = 1
