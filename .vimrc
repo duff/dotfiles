@@ -32,6 +32,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-rhubarb'
 
 call vundle#end()
 
@@ -167,7 +168,6 @@ nnoremap <leader>2 :cnext <CR>
 " Space is much easier to press than %
 " --------------------------------------------------
 map <space> %
-
 " --------------------------------------------------
 " Speed up viewport scrolling
 " --------------------------------------------------
