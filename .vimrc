@@ -22,6 +22,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'xolox/vim-session'
 Plugin 'xolox/vim-misc'
+Plugin 'chriskempson/base16-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-rake'
@@ -66,7 +67,8 @@ set synmaxcol=200                     " limit syntax highlighting for long lines
 " Basic font, colors
 " --------------------------------------------------
 set background=dark
-colorscheme base16-custom
+colorscheme base16-default-dark
+" colorscheme base16-oceanicnext
 syntax on
 
 " ----------------------------------------------------------------------------
