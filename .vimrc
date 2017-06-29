@@ -312,19 +312,6 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 set clipboard+=unnamed
 
 " --------------------------------------------------
-"  Ignored wildcards
-" --------------------------------------------------
-set wildignore+=*/.git/*,*/deps/*,*/_build/*,*/vendor/*
-
-" --------------------------------------------------
-"  CtrlP customization
-" --------------------------------------------------
-let g:ctrlp_match_window = 'order:ttb,max:20'
-let g:ctrlp_by_filename = 1
-let g:ctrlp_working_path_mode = 'ra'
-
-
-" --------------------------------------------------
 " Persistent undo
 " --------------------------------------------------
 set undofile
@@ -400,9 +387,24 @@ let g:airline_section_z='%3v'
 let g:airline_theme='cool'
 let g:airline_skip_empty_sections = 1
 
+" --------------------------------------------------
+"  Ignored wildcards
+" --------------------------------------------------
+set wildignore+=*/.git/*,*/tmp/*,*/deps/*,*/_build/*,*/vendor/*
+
 
 " --------------------------------------------------
-" Use the silver searcher
+"  CtrlP customization
+" --------------------------------------------------
+let g:ctrlp_match_window = 'order:ttb,max:20'
+let g:ctrlp_by_filename = 1
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_show_hidden = 1
+
+" --------------------------------------------------
+" Use ripgrep for all the things
 " --------------------------------------------------
 let g:ackprg = 'rg --vimgrep'
+set grepprg=rg\ --color=never
+let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 
