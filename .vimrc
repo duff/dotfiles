@@ -118,7 +118,7 @@ set nohlsearch              " don't highlight searches
 " Edit vimrc
 " ---------------------------------------------------------------------------
 nmap <leader>c :sp ~/.vimrc<CR><C-W>_
-nmap <leader>C :source $MYVIMRC<CR>:exe "echo 'vimrc reloaded'"<CR>
+nmap <leader>C :source $MYVIMRC<CR>:source $MYGVIMRC<CR>:exe "echo 'vimrc/gvimrc reloaded'"<CR>
 
 
 " ----------------------------------------------------------------------------
@@ -387,6 +387,7 @@ let g:session_autosave = 'yes'
 let g:session_lock_enabled = 0
 let g:session_autosave_silent = 1
 let g:session_autosave_periodic = 2
+let g:session_autoload = 'no'
 
 " --------------------------------------------------
 " Airline configuation
