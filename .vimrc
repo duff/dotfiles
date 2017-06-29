@@ -403,4 +403,5 @@ let g:airline_skip_empty_sections = 1
 " --------------------------------------------------
 " Use the silver searcher
 " --------------------------------------------------
-let g:ackprg = 'ag --vimgrep'
+let g:ackprg = 'rg --vimgrep'
+
