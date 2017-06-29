@@ -47,6 +47,8 @@ set autoread                                  " reload files changed outside of 
 set autowrite                                 " some commands should cause an automatic write
 set nrformats=                                " improves incrementing when there are leading 0's.
 set linebreak                                 " wrapping preserves words.
+set number                                    " show line numbers
+
 
 " ----------------------------------------------------------------------------
 "  UI
@@ -58,6 +60,14 @@ set scrolloff=2                       " keep some context when scrolling
 set nowrap                            " do not wrap lines
 set antialias                         " of course
 set synmaxcol=200                     " limit syntax highlighting for long lines
+
+
+" --------------------------------------------------
+" Basic font, colors
+" --------------------------------------------------
+set background=dark
+colorscheme base16-custom
+syntax on
 
 " ----------------------------------------------------------------------------
 "  Visual cues
@@ -105,7 +115,7 @@ set nohlsearch              " don't highlight searches
 " Edit vimrc
 " ---------------------------------------------------------------------------
 nmap <leader>c :sp ~/.vimrc<CR><C-W>_
-nmap <leader>C :source $MYVIMRC<CR>:source $MYGVIMRC<CR>:filetype detect<CR><leader>d<leader>d<C-L>:exe ":echo 'vimrc reloaded'"<CR>
+nmap <leader>C :source $MYVIMRC<CR>:exe "echo 'vimrc reloaded'"<CR>
 
 
 " ----------------------------------------------------------------------------
@@ -298,12 +308,6 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 " paste into other apps.
 " --------------------------------------------------
 set clipboard+=unnamed
-
-" --------------------------------------------------
-"  Colors/Theme
-" --------------------------------------------------
-syntax on
-
 
 " --------------------------------------------------
 "  Ignored wildcards

@@ -4,20 +4,11 @@
 " --------------------------------------------------
 set guioptions=eg
 
-set number                " show line numbers
-
 " --------------------------------------------------
 " Basic font, colors
 " --------------------------------------------------
 
-set background=dark
-colorscheme base16-custom
 set guifont=Hack:h12
-
-" set guifont=Bitstream\ Vera\ Sans\ Mono:h12
-" set guifont=Monaco:h11
-" set guifont=Inconsolata:h12
-" set guifont=Inconsolata-dz:h11
 
 
 " --------------------------------------------------
