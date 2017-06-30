@@ -114,18 +114,11 @@ set incsearch               " do incremental searching
 set nohlsearch              " don't highlight searches
 
 
-" ---------------------------------------------------------------------------
-" Edit vimrc
-" ---------------------------------------------------------------------------
-nmap <leader>c :sp ~/.vimrc<CR><C-W>_
-nmap <leader>C :source $MYVIMRC<CR>:source $MYGVIMRC<CR>:exe "echo 'vimrc/gvimrc reloaded'"<CR>
-
-
 " ----------------------------------------------------------------------------
 "  NerdTree config
 " ----------------------------------------------------------------------------
 let NERDTreeWinSize=31                " how wide nerdtree ought to be
-let NERDTreeMinimalUI=1               " don't need to the noise
+let NERDTreeMinimalUI=1               " hide the noise
 let NERDTreeDirArrows=1               " prettier arrows
 
 
@@ -133,10 +126,17 @@ let NERDTreeDirArrows=1               " prettier arrows
 " Mappings
 " ---------------------------------------------------------------------------
 
+
+" --------------------------------------------------
+" Edit vimrc
+" --------------------------------------------------
+nmap <leader>c :sp ~/.vimrc<CR><C-W>_
+nmap <leader>C :source $MYVIMRC<CR>:source $MYGVIMRC<CR>:exe "echo 'vimrc/gvimrc reloaded'"<CR>
+
 " --------------------------------------------------
 " Show/hide nerdtree
 " --------------------------------------------------
-nnoremap <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
+nnoremap <leader>d :NERDTreeToggle<CR>
 
 " --------------------------------------------------
 " Highlight the current buffer in the nerdtree
@@ -227,11 +227,16 @@ noremap gl g_
 noremap gh ^
 
 " --------------------------------------------------
-" ack/ag shortcuts
+" ack/ag/rg shortcuts
 " --------------------------------------------------
 nnoremap <leader>A :Ack<cword><CR>
 nnoremap <leader>a :Ack<space>
 vmap <leader>A "ry:Ack<space>"<C-r>r"<CR>
+
+" --------------------------------------------------
+" Open up in Github
+" --------------------------------------------------
+nnoremap <leader>g :Gbrowse<CR>
 
 " --------------------------------------------------
 " Ctags shortcuts
@@ -375,6 +380,8 @@ let g:session_lock_enabled = 0
 let g:session_autosave_silent = 1
 let g:session_autosave_periodic = 2
 let g:session_autoload = 'no'
+let g:session_persist_colors = 0
+let g:session_persist_font = 0
 
 " --------------------------------------------------
 " Airline configuation
