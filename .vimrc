@@ -136,7 +136,8 @@ nmap <leader>C :source $MYVIMRC<CR>:source $MYGVIMRC<CR>:exe "echo 'vimrc/gvimrc
 " --------------------------------------------------
 " Show/hide nerdtree
 " --------------------------------------------------
-nnoremap <leader>d :NERDTreeToggle<CR>
+nnoremap <leader>d :NERDTreeClose<CR>
+nnoremap <leader>D :NERDTree<CR>
 
 " --------------------------------------------------
 " Highlight the current buffer in the nerdtree
@@ -382,6 +383,10 @@ let g:session_autosave_periodic = 2
 let g:session_autoload = 'no'
 let g:session_persist_colors = 0
 let g:session_persist_font = 0
+
+set sessionoptions-=buffers
+set sessionoptions-=help
+set sessionoptions-=tabpages
 
 " --------------------------------------------------
 " Airline configuation
