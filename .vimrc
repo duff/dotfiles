@@ -69,7 +69,6 @@ set synmaxcol=200                     " limit syntax highlighting for long lines
 " --------------------------------------------------
 set background=dark
 colorscheme base16-default-dark
-" colorscheme base16-oceanicnext
 syntax on
 
 " ----------------------------------------------------------------------------
