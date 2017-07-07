@@ -117,7 +117,7 @@ set nohlsearch              " don't highlight searches
 " ----------------------------------------------------------------------------
 "  NerdTree config
 " ----------------------------------------------------------------------------
-let NERDTreeWinSize=31                " how wide nerdtree ought to be
+let NERDTreeWinSize=36                " how wide nerdtree ought to be
 let NERDTreeMinimalUI=1               " hide the noise
 let NERDTreeDirArrows=1               " prettier arrows
 
@@ -131,7 +131,7 @@ let NERDTreeDirArrows=1               " prettier arrows
 " Edit vimrc
 " --------------------------------------------------
 nmap <leader>c :sp ~/.vimrc<CR><C-W>_
-nmap <leader>C :source $MYVIMRC<CR>:source $MYGVIMRC<CR>:exe "echo 'vimrc/gvimrc reloaded'"<CR>
+nmap <leader>C :source $MYVIMRC<CR>:source $MYGVIMRC<CR>:exe "echo 'vimrc & gvimrc reloaded'"<CR>
 
 " --------------------------------------------------
 " Show/hide nerdtree
@@ -242,8 +242,8 @@ nnoremap <leader>g :Gbrowse<CR>
 " --------------------------------------------------
 " Ctags shortcuts
 " --------------------------------------------------
-nmap <C-\> <C-]>
-nmap g<C-\> g]
+nnoremap <C-Enter> <C-]>
+nnoremap g<C-Enter> g]
 
 " --------------------------------------------------
 " Auto complete shortcut
