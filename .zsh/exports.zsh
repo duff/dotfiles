@@ -22,3 +22,5 @@ export EDITOR='vim'
 ulimit -n 4048
 
 export DOCKER_MEMORY='1024'
+
+export ERL_AFLAGS="-kernel shell_history enabled"
