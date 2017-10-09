@@ -335,7 +335,7 @@ set hidden
 au FocusLost * :wall
 
 " --------------------------------------------------
-" Insert mode comletion options
+" Insert mode completion options
 " --------------------------------------------------
 set completeopt=longest,menu,preview
 set complete=.
