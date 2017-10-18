@@ -17,6 +17,9 @@ export GREP_COLOR='3;33'
 export GIT_EDITOR="vim"
 export EDITOR='vim'
 
+# rg is really fast - use it to give fzf its file list
+export FZF_DEFAULT_COMMAND='rg --files'
+
 # export RIAK_HOME="/Users/duff/code/riak"
 
 ulimit -n 4048
