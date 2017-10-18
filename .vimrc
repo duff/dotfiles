@@ -25,6 +25,7 @@ Plugin 'xolox/vim-session'
 Plugin 'xolox/vim-misc'
 Plugin 'chriskempson/base16-vim'
 Plugin 'kana/vim-textobj-entire'
+Plugin 'junegunn/fzf.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-rake'
@@ -413,6 +414,14 @@ let g:ctrlp_match_window = 'order:ttb,max:20'
 let g:ctrlp_by_filename = 1
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_show_hidden = 1
+
+
+" --------------------------------------------------
+"  FZF customization
+" --------------------------------------------------
+set rtp+=/usr/local/opt/fzf
+set rtp+=~/.fzf
+
 
 " --------------------------------------------------
 " Use ripgrep for all the things
