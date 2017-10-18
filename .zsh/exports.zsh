@@ -18,7 +18,8 @@ export GIT_EDITOR="vim"
 export EDITOR='vim'
 
 # rg is really fast - use it to give fzf its file list
-export FZF_DEFAULT_COMMAND='rg --files'
+# show hidden files but ignore the git directory
+export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git'"
 
 # export RIAK_HOME="/Users/duff/code/riak"
 
