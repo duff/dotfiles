@@ -205,8 +205,13 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 " --------------------------------------------------
 " Ctrlp plugin
 " --------------------------------------------------
-nnoremap <leader>f :CtrlP<CR>
-nnoremap <leader>F :CtrlPClearCache<CR>:CtrlP<CR>
+" nnoremap <leader>f :CtrlP<CR>
+" nnoremap <leader>F :CtrlPClearCache<CR>:CtrlP<CR>
+
+" --------------------------------------------------
+" FZF plugin
+" --------------------------------------------------
+nnoremap <leader>f :Files<CR>
 
 " --------------------------------------------------
 " Session shortcuts
@@ -411,7 +416,7 @@ set wildignore+=*/.git/*,*/tmp/*,*/deps/*,*/_build/*,*/vendor/*
 "  CtrlP customization
 " --------------------------------------------------
 let g:ctrlp_match_window = 'order:ttb,max:20'
-let g:ctrlp_by_filename = 1
+" let g:ctrlp_by_filename = 1
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_show_hidden = 1
 
@@ -420,8 +425,6 @@ let g:ctrlp_show_hidden = 1
 "  FZF customization
 " --------------------------------------------------
 set rtp+=/usr/local/opt/fzf
-set rtp+=~/.fzf
-
 
 " --------------------------------------------------
 " Use ripgrep for all the things
