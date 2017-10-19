@@ -212,6 +212,10 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 " FZF plugin
 " --------------------------------------------------
 nnoremap <leader>f :Files<CR>
+nnoremap <leader><leader>l :Files<CR>/lib/
+nnoremap <leader><leader>t :Files<CR>/test/
+nnoremap <leader><leader>c :Files<CR>/controllers/
+nnoremap <leader><leader>m :Files<CR>/models/
 
 " --------------------------------------------------
 " Session shortcuts
@@ -425,6 +429,7 @@ let g:ctrlp_show_hidden = 1
 "  FZF customization
 " --------------------------------------------------
 set rtp+=/usr/local/opt/fzf
+
 
 " --------------------------------------------------
 " Use ripgrep for all the things
