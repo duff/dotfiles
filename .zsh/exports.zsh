@@ -21,6 +21,12 @@ export EDITOR='vim'
 # show hidden files but ignore the git directory
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git'"
 
+# set color options for fzf
+export FZF_DEFAULT_OPTS='
+--color fg:242,bg:233,hl:65,fg+:15,bg+:234,hl+:108
+--color info:108,prompt:109,spinner:108,pointer:168,marker:168
+'
+
 # export RIAK_HOME="/Users/duff/code/riak"
 
 ulimit -n 4048
