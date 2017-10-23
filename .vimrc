@@ -205,17 +205,17 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 " --------------------------------------------------
 " Ctrlp plugin
 " --------------------------------------------------
-" nnoremap <leader>f :CtrlP<CR>
-" nnoremap <leader>F :CtrlPClearCache<CR>:CtrlP<CR>
+nnoremap <leader>f :CtrlP<CR>
+nnoremap <leader>F :CtrlPClearCache<CR>:CtrlP<CR>
 
 " --------------------------------------------------
 " FZF plugin
 " --------------------------------------------------
-nnoremap <leader>f :Files<CR>
-nnoremap <leader><leader>l :Files<CR>/lib/
-nnoremap <leader><leader>t :Files<CR>/test/
-nnoremap <leader><leader>c :Files<CR>/controllers/
-nnoremap <leader><leader>m :Files<CR>/models/
+" nnoremap <leader>f :Files<CR>
+" nnoremap <leader><leader>l :Files<CR>/lib/
+" nnoremap <leader><leader>t :Files<CR>/test/
+" nnoremap <leader><leader>c :Files<CR>/controllers/
+" nnoremap <leader><leader>m :Files<CR>/models/
 
 " --------------------------------------------------
 " Session shortcuts
@@ -419,8 +419,8 @@ set wildignore+=*/.git/*,*/tmp/*,*/deps/*,*/_build/*,*/vendor/*
 " --------------------------------------------------
 "  CtrlP customization
 " --------------------------------------------------
-let g:ctrlp_match_window = 'order:ttb,max:20'
-" let g:ctrlp_by_filename = 1
+let g:ctrlp_match_window = 'bottom,order:btt,max:20'
+let g:ctrlp_by_filename = 1
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_show_hidden = 1
 
@@ -436,5 +436,6 @@ set rtp+=/usr/local/opt/fzf
 " --------------------------------------------------
 let g:ackprg = 'rg --vimgrep'
 set grepprg=rg\ --color=never
-let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-
+" let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+let g:ctrlp_user_command = "rg %s --files --hidden -g '!.git'"
+ 
