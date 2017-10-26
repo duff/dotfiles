@@ -18,8 +18,8 @@ setopt APPEND_HISTORY
 # Add comamnds as they are typed, don't wait until shell exit
 setopt INC_APPEND_HISTORY
 
-# Do not write events to history that are duplicates of previous events
-setopt HIST_IGNORE_DUPS
+# If a new command line duplicates an older one, the older command is removed from the history
+setopt HIST_IGNORE_ALL_DUPS
 
 # When searching history don't display results already cycled through twice
 setopt HIST_FIND_NO_DUPS
