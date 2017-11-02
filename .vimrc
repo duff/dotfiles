@@ -108,8 +108,6 @@ set directory=~/.vim/tmp               " where to keep swp files
 " ----------------------------------------------------------------------------
 "  Searching
 " ----------------------------------------------------------------------------
-nnoremap / /\v
-vnoremap / /\v
 set ignorecase              " make searches case insensitive
 set smartcase               " care about case sensitivity if there's a capital letter
 set incsearch               " do incremental searching
@@ -363,6 +361,17 @@ autocmd BufReadPost *
   \ if !(bufname("%") =~ '\(COMMIT_EDITMSG\)') && line("'\"") > 1 && line("'\"") <= line("$") |
   \   exe "normal! g`\"" |
   \ endif
+
+
+" --------------------------------------------------
+"  No hlsearch, but highlight all matches while searching
+" --------------------------------------------------
+augroup vimrc-incsearch-highlight
+  autocmd!
+  autocmd CmdlineEnter [/\?] :set hlsearch
+  autocmd CmdlineLeave [/\?] :set nohlsearch
+augroup END
+
 
 " --------------------------------------------------
 "  Omnicomplete
