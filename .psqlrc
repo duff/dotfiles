@@ -1,4 +1,4 @@
 \timing
 \x auto
 \set HISTCONTROL ignoredups
-
+\pset numericlocale
