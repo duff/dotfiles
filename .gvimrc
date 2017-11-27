@@ -10,18 +10,18 @@ set guioptions=eg
 
 set guifont=Hack:h12
 
-
 " --------------------------------------------------
 " Perfectly black background
 " --------------------------------------------------
-" highlight Normal guibg=Black
+highlight Normal guibg=Black
 " highlight Normal guibg=#141414
 " highlight Normal guibg=#1A1A1A
 
 " --------------------------------------------------
 " Hide the ~ symbols where there's no text
 " --------------------------------------------------
-highlight NonText guibg=#181818 guifg=#181818
+" highlight NonText guibg=#181818 guifg=#181818
+highlight NonText guibg=Black guifg=Black
 
 
 " --------------------------------------------------
