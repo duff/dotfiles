@@ -30,5 +30,11 @@ function zle-keymap-select {
   zle reset-prompt
 }
 
+function format-thousands(){
+  while read data; do
+    printf "%'d\n" "$data"
+  done
+}
+
 zle -N zle-keymap-select
 
