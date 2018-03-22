@@ -36,5 +36,9 @@ function format-thousands(){
   done
 }
 
+function wcl(){
+  wc -l < $1 | format-thousands
+}
+
 zle -N zle-keymap-select
 
