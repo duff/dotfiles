@@ -246,7 +246,7 @@ vmap <leader>A "ry:Ack<space>"<C-r>r"<CR>
 " --------------------------------------------------
 " Open up in Github
 " --------------------------------------------------
-nnoremap <leader>g :Gbrowse<CR>
+map <leader>g :Gbrowse<CR>
 
 " --------------------------------------------------
 " Ctags shortcuts
