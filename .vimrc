@@ -72,6 +72,8 @@ set synmaxcol=200                     " limit syntax highlighting for long lines
 " Basic font, colors
 " --------------------------------------------------
 set background=dark
+highlight Normal ctermbg=Black
+highlight NonText ctermbg=Black ctermfg=Black
 colorscheme base16-default-dark
 syntax on
 
