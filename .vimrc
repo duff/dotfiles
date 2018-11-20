@@ -222,6 +222,11 @@ nnoremap <leader>F :CtrlPClearCache<CR>:CtrlP<CR>
 nnoremap <leader>p :OpenSession<space>
 
 " --------------------------------------------------
+" Elixir shortcuts
+" --------------------------------------------------
+nnoremap <leader>o :MixFormat<Enter>
+
+" --------------------------------------------------
 " Normal mode shortcuts
 " --------------------------------------------------
 nmap <leader><Enter> [<space>
