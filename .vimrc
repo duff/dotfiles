@@ -226,7 +226,7 @@ nnoremap <leader>p :OpenSession<space>
 " --------------------------------------------------
 " Elixir shortcuts
 " --------------------------------------------------
-nnoremap <leader>o :MixFormat<Enter>
+nnoremap <leader>o :w<CR>:MixFormat<CR>:exe "echo 'Format Complete'"<CR>
 
 " --------------------------------------------------
 " Normal mode shortcuts
