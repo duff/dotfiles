@@ -259,8 +259,8 @@ map <leader>g :Gbrowse<CR>
 " --------------------------------------------------
 " Ctags shortcuts
 " --------------------------------------------------
-nnoremap <C-Enter> <C-]>
-nnoremap g<C-Enter> g]
+nmap <C-Enter> <C-]>
+nmap g<C-Enter> g]
 
 " --------------------------------------------------
 " Auto complete shortcut
