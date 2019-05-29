@@ -205,6 +205,11 @@ cnoremap <c-e> <end>
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 " --------------------------------------------------
+" Replace the word under cursor
+" --------------------------------------------------
+nnoremap <leader>* :%s/\<<c-r><c-w>\>//gc<left><left><left>
+
+" --------------------------------------------------
 " Ctrlp plugin
 " --------------------------------------------------
 nnoremap <leader>f :CtrlP<CR>
