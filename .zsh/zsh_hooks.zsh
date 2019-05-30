@@ -30,7 +30,7 @@ function zle-keymap-select {
   zle reset-prompt
 }
 
-function format-thousands(){
+function format-thousands() {
   while read data; do
     printf "%'d\n" "$data"
   done
@@ -38,6 +38,10 @@ function format-thousands(){
 
 function wcl(){
   wc -l < $1 | format-thousands
+}
+
+function mkdirc() {
+  mkdir -p -- "$1" && cd -P -- "$1"
 }
 
 zle -N zle-keymap-select
