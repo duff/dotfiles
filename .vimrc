@@ -26,8 +26,8 @@ Plugin 'xolox/vim-session'
 Plugin 'xolox/vim-misc'
 Plugin 'danielwe/base16-vim'
 Plugin 'kana/vim-textobj-entire'
-Plugin 'junegunn/fzf.vim'
 Plugin 'slashmili/alchemist.vim'
+Plugin 'Alok/notational-fzf-vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-rake'
@@ -216,15 +216,6 @@ nnoremap <leader>f :CtrlP<CR>
 nnoremap <leader>F :CtrlPClearCache<CR>:CtrlP<CR>
 
 " --------------------------------------------------
-" FZF plugin
-" --------------------------------------------------
-" nnoremap <leader>f :Files<CR>
-" nnoremap <leader><leader>l :Files<CR>/lib/
-" nnoremap <leader><leader>t :Files<CR>/test/
-" nnoremap <leader><leader>c :Files<CR>/controllers/
-" nnoremap <leader><leader>m :Files<CR>/models/
-
-" --------------------------------------------------
 " Session shortcuts
 " --------------------------------------------------
 nnoremap <leader>p :OpenSession<space>
@@ -299,6 +290,11 @@ nnoremap <leader>h :FixWhitespace<cr>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>x :x<CR>
+
+" --------------------------------------------------
+" Use NV
+" --------------------------------------------------
+nnoremap <leader>N :NV<CR>
 
 " --------------------------------------------------
 " I often use a Scratch buffer
@@ -438,6 +434,11 @@ let g:airline_skip_empty_sections = 1
 " --------------------------------------------------
 set wildignore+=*/.git/*,*/tmp/*,*/deps/*,*/_build/*,*/vendor/*
 
+" --------------------------------------------------
+" notational-fzf customization
+" --------------------------------------------------
+let g:nv_search_paths = ['~/Documents/notes']
+
 
 " --------------------------------------------------
 "  CtrlP customization
@@ -451,8 +452,7 @@ let g:ctrlp_show_hidden = 1
 " --------------------------------------------------
 "  FZF customization
 " --------------------------------------------------
-" set rtp+=/usr/local/opt/fzf
-
+set rtp+=/usr/local/opt/fzf
 
 " --------------------------------------------------
 " Use ripgrep for all the things
