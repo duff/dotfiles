@@ -280,6 +280,11 @@ inoremap <C-l> <space>=><space>
 vnoremap p pgvy
 
 " --------------------------------------------------
+" Make the dot command smarter in visual mode
+" --------------------------------------------------
+vnoremap . :norm.<CR>
+
+" --------------------------------------------------
 " Remove trailing whitespace
 " --------------------------------------------------
 nnoremap <leader>h :FixWhitespace<cr>
@@ -461,4 +466,4 @@ let g:ackprg = 'rg --vimgrep'
 set grepprg=rg\ --color=never
 " let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 let g:ctrlp_user_command = "rg %s --files --hidden -g '!.git'"
- 
+
