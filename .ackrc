@@ -5,3 +5,4 @@
 --ignore-dir=tmp
 --ignore-dir=public/assets
 --ignore-dir=vendor/assets
+--ignore-dir=vendor/cache

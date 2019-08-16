@@ -1,7 +1,7 @@
 [user]
-	name = Duff OMelia
- email = duff@omelia.org
- signingkey = 30AB6678
+  name = Duff OMelia
+  email = duff@omelia.org
+  signingkey = 30AB6678
 
 [color]
   diff = auto
