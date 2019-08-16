@@ -6,7 +6,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$HOME/bin:/opt/l
 export CDPATH=.:~/code:~/spreedly
 
 # Setup terminal, and turn on colors
-export TERM=xterm-color
+export TERM=screen-256color
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export CLICOLOR=1
 
