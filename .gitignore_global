@@ -3,3 +3,4 @@ doc/tags
 TAGS
 .projectile
 *.tags
+.elixir_ls

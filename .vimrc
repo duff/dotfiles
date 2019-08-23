@@ -65,6 +65,8 @@ set scrolloff=2                       " keep some context when scrolling
 set nowrap                            " do not wrap lines
 set antialias                         " of course
 set synmaxcol=200                     " limit syntax highlighting for long lines
+set cmdheight=2                       " better display of error messages
+set updatetime=300                    " recommended performance improvement in coc.nvim
 
 
 " --------------------------------------------------
@@ -431,6 +433,7 @@ let g:airline_section_y=''
 let g:airline_section_z='%3v'
 let g:airline_theme='cool'
 let g:airline_skip_empty_sections = 1
+let g:airline#extensions#coc#enabled = 1
 
 " --------------------------------------------------
 "  Ignored wildcards
@@ -465,3 +468,38 @@ set grepprg=rg\ --color=never
 " let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 let g:ctrlp_user_command = "rg %s --files --hidden -g '!.git'"
 
+
+" --------------------------------------------------
+" Coc.nvim - use Option-C for trigger completion and
+" navigate to the next complete item.
+" Use <cr> to confirm completion.
+" --------------------------------------------------
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> ç
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\ç" :
+      \ coc#refresh()
+
+" --------------------------------------------------
+" Coc.nvim
+" Use K to show documentation in preview window
+" --------------------------------------------------
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" --------------------------------------------------
+" Coc.nvim
+" Remap keys for gotos
+" --------------------------------------------------
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
