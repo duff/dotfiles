@@ -7,7 +7,7 @@ set guioptions=eg
 " --------------------------------------------------
 " Basic font, colors
 " --------------------------------------------------
-set guifont=Hack:h12
+set guifont=Hack:h16
 
 " --------------------------------------------------
 " Perfectly black background

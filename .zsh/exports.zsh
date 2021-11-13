@@ -34,3 +34,6 @@ ulimit -n 4048
 export DOCKER_MEMORY='1024'
 
 export ERL_AFLAGS="-kernel shell_history enabled"
+
+export KERL_BUILD_DOCS=yes
+export KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=$(brew --prefix openssl@1.1)"
