@@ -160,14 +160,12 @@ nmap <leader>C :source $MYVIMRC<CR>:source $MYGVIMRC<CR>:exe "echo 'vimrc & gvim
 " --------------------------------------------------
 " Show/hide nerdtree
 " --------------------------------------------------
-nnoremap <leader>d :NERDTreeClose<CR>
-nnoremap <leader>D :NERDTree<CR>
+nnoremap <expr> <leader>d g:NERDTree.IsOpen() ? ':NERDTreeClose<CR>' : ':NERDTree<CR>'
 
 " --------------------------------------------------
 " Highlight the current buffer in the nerdtree
 " --------------------------------------------------
 nnoremap <leader>n :NERDTreeFind<CR>
-
 
 " --------------------------------------------------
 " Move between windows
