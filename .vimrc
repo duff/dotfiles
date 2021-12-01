@@ -47,12 +47,13 @@ set nocompatible
 runtime macros/matchit.vim
 filetype plugin indent on
 let mapleader = ","
-set history=1000                              " lots of command line history
-set autoread                                  " reload files changed outside of Vim
-set autowrite                                 " some commands should cause an automatic write
-set nrformats=                                " improves incrementing when there are leading 0's.
-set linebreak                                 " wrapping preserves words.
-set number                                    " show line numbers
+set history=1000                      " lots of command line history
+set autoread                          " reload files changed outside of Vim
+set autowrite                         " some commands should cause an automatic write
+set nrformats=                        " improves incrementing when there are leading 0's
+set linebreak                         " wrapping preserves words
+set number                            " show line numbers
+set hidden                            " let me leave buffers even when they're changed
 
 
 " ----------------------------------------------------------------------------
@@ -78,15 +79,17 @@ highlight NonText ctermbg=Black ctermfg=Black
 colorscheme base16-default-dark
 syntax on
 
+
 " ----------------------------------------------------------------------------
 "  Visual cues
 " ----------------------------------------------------------------------------
-set laststatus=2                " always show the status line
-set visualbell                  " quiet
-set noerrorbells                " quiet
-set showcmd                     " show size of visual selection
-set wildmenu                    " show possible matches for command completions using tab
-set wildmode=list:longest,full  " full list using common string. Then full complete.
+set laststatus=2                      " always show the status line
+set visualbell                        " quiet
+set noerrorbells                      " quiet
+set showcmd                           " show size of visual selection
+set wildmenu                          " show possible matches for command completions using tab
+set wildmode=list:longest,full        " full list using common string. Then full complete.
+set ofu=syntaxcomplete#Complete       " omnicomplete
 
 " ----------------------------------------------------------------------------
 "  Tabs
@@ -106,8 +109,8 @@ set nowritebackup                      " do not keep a backup while working
 set noswapfile                         " don't keep swp files either
 set backupdir=~/.vim/backups           " store backups under ~/.vim/backup
 set backupcopy=yes                     " keep attributes of original file
-set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
 set directory=~/.vim/tmp               " where to keep swp files
+set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
 
 " ----------------------------------------------------------------------------
 "  Searching
@@ -117,6 +120,23 @@ set smartcase               " care about case sensitivity if there's a capital l
 set incsearch               " do incremental searching
 set nohlsearch              " don't highlight searches
 
+" --------------------------------------------------
+" Yank to the * register (system clipboard) to easily
+" paste into other apps.
+" --------------------------------------------------
+set clipboard+=unnamed
+
+" --------------------------------------------------
+" Persistent undo
+" --------------------------------------------------
+set undofile
+set undodir=~/.vim/.undo
+
+" --------------------------------------------------
+" Insert mode completion options
+" --------------------------------------------------
+set completeopt=longest,menu,preview
+set complete=.
 
 " ----------------------------------------------------------------------------
 "  NerdTree config
@@ -334,34 +354,10 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 "  Misc stuff
 " ---------------------------------------------------------------------------
 
-
-" --------------------------------------------------
-" Yank to the * register (system clipboard) to easily
-" paste into other apps.
-" --------------------------------------------------
-set clipboard+=unnamed
-
-" --------------------------------------------------
-" Persistent undo
-" --------------------------------------------------
-set undofile
-set undodir=~/.vim/.undo
-
-" --------------------------------------------------
-"  Let me leave buffers even when they're changed.
-" --------------------------------------------------
-set hidden
-
 " --------------------------------------------------
 " Write all named, changed buffers when Vim loses focus
 " --------------------------------------------------
 au FocusLost * :wall
-
-" --------------------------------------------------
-" Insert mode completion options
-" --------------------------------------------------
-set completeopt=longest,menu,preview
-set complete=.
 
 " --------------------------------------------------
 " Improve navigation of the popup menu for completion.
@@ -386,12 +382,6 @@ augroup vimrc-incsearch-highlight
   autocmd CmdlineEnter [/\?] :set hlsearch
   autocmd CmdlineLeave [/\?] :set nohlsearch
 augroup END
-
-
-" --------------------------------------------------
-"  Omnicomplete
-" --------------------------------------------------
-set ofu=syntaxcomplete#Complete
 
 
 " --------------------------------------------------
