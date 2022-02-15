@@ -65,7 +65,6 @@ set wm=2                              " wrap margin on the right
 set scrolloff=2                       " keep some context when scrolling
 set nowrap                            " do not wrap lines
 set antialias                         " of course
-set synmaxcol=200                     " limit syntax highlighting for long lines
 set cmdheight=2                       " better display of error messages
 set updatetime=300                    " recommended performance improvement in coc.nvim
 
