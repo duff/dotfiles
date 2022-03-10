@@ -9,5 +9,4 @@ source ~/.zsh/history.zsh
 source ~/.zsh/edit_command_line.zsh
 source ~/.zsh/private.zsh
 source ~/.zsh/zsh_hooks.zsh
-source ~/.zsh/bundle_exec.zsh
 source ~/.zsh/zmv.zsh

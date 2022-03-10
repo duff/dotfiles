@@ -4,12 +4,12 @@ export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
 export HOMEBREW_REPOSITORY="/opt/homebrew"
 export HOMEBREW_SHELLENV_PREFIX="/opt/homebrew"
 
-export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$HOME/bin:/opt/local/bin:/opt/local/sbin:$HOME/.node/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:${GPG1_DIR}:$PATH
+export PATH=/Applications/MacVim.app/Contents/bin:/usr/local/opt/gnupg@1.4/libexec/gpgbin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$HOME/bin:/opt/local/bin:/opt/local/sbin:$HOME/.node/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:${GPG1_DIR}:$PATH
 
 GPG1_DIR=$(brew --prefix gpg1)/libexec/gpgbin
 
 # Our list of directories we can cd to from anywhere
-export CDPATH=.:~/code:~/spreedly
+export CDPATH=.:~/code
 
 # Setup terminal, and turn on colors
 export TERM=screen-256color
