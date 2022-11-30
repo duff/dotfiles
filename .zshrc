@@ -10,3 +10,5 @@ source ~/.zsh/edit_command_line.zsh
 source ~/.zsh/private.zsh
 source ~/.zsh/zsh_hooks.zsh
 source ~/.zsh/zmv.zsh
+source ~/.zsh/exports.zsh
+
