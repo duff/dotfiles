@@ -13,3 +13,5 @@ vim.keymap.set('n', '<leader>q', ':q<CR>')
 
 vim.keymap.set('n', '<leader>c', ':sp $MYVIMRC<CR>')
 vim.keymap.set('n', '<leader>C', ':source $MYVIMRC<CR>:exe "echo \'init.lua reloaded\'"<CR>')
+
+vim.cmd('colorscheme base16-default-dark')
