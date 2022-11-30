@@ -46,7 +46,7 @@ vim.cmd [[
 vim.g.colors_name = "base16-default-dark"
 
 -- Vim editor colors                    fg bg ctermfg ctermbg attr guisp
-vim.api.nvim_set_hl(0, 'Normal', { fg = gui05, bg = gui00, ctermfg = cterm05, ctermbg = cterm00 })
+-- vim.api.nvim_set_hl(0, 'Normal', { fg = gui05, bg = gui00, ctermfg = cterm05, ctermbg = cterm00 })
 vim.api.nvim_set_hl(0, 'Bold', { bold = true })
 vim.api.nvim_set_hl(0, 'Debug', { fg = gui08, ctermfg = cterm08 })
 vim.api.nvim_set_hl(0, 'Directory', { fg = gui0D, ctermfg = cterm0D })
@@ -75,7 +75,7 @@ vim.api.nvim_set_hl(0, 'Title', { fg = gui0D, ctermfg = cterm0D })
 vim.api.nvim_set_hl(0, 'Conceal', { fg = gui0D, bg = gui00, ctermfg = cterm0D, ctermbg = cterm00 })
 vim.api.nvim_set_hl(0, 'Cursor', { fg = gui00, bg = gui05, ctermfg = cterm00, ctermbg = cterm05 })
 vim.api.nvim_set_hl(0, 'NonText', { fg = gui03, ctermfg = cterm03 })
-vim.api.nvim_set_hl(0, 'LineNr', { fg = gui03, bg = gui01, ctermfg = cterm03, ctermbg = cterm01 })
+vim.api.nvim_set_hl(0, 'LineNr', { fg = gui03, bg = gui01, ctermfg = cterm03, ctermbg = cterm00 })
 vim.api.nvim_set_hl(0, 'SignColumn', { fg = gui03, bg = gui01, ctermfg = cterm03, ctermbg = cterm01 })
 vim.api.nvim_set_hl(0, 'StatusLine', { fg = gui04, bg = gui02, ctermfg = cterm04, ctermbg = cterm02 })
 vim.api.nvim_set_hl(0, 'StatusLineNC', { fg = gui03, bg = gui01, ctermfg = cterm03, ctermbg = cterm01 })
