@@ -54,6 +54,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-commentary'
   use 'nvim-tree/nvim-tree.lua'
   use 'Shatur/neovim-session-manager'
+  use 'nvim-treesitter/nvim-treesitter'
 end)
 
 
@@ -99,11 +100,26 @@ bind('v', '<M-o>ptionk', '[egv', remap)
 bind('v', '<M-o>ptionj', ']egv', remap)
 
 
+require'nvim-treesitter.configs'.setup {
+  -- A list of parser names, or "all"
+  ensure_installed = "all",
+
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  highlight = {
+    enable = true,
+  }
+}
+
 require('session_manager').setup({
   autoload_mode = require('session_manager.config').AutoloadMode.Disabled
 })
 
 require("nvim-tree").setup({
+  -- ensure it reflects the right parent directory
+  respect_buf_cwd = true,
+
   view = {
     adaptive_size = true,
     mappings = {
