@@ -1,49 +1,132 @@
+-- disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
-vim.o.number = true
-vim.o.hlsearch = false
-vim.o.wrap = false
+local bind = vim.keymap.set
+local cmd = vim.cmd
+local opt = vim.opt
+local remap = {remap = true}
 
-vim.o.tabstop = 2
-vim.o.softtabstop = 2
-vim.o.shiftwidth = 2
+opt.number = true
+opt.hlsearch = false
+opt.wrap = false
 
-vim.o.expandtab = true                 -- expand tabs to spaces
+-- tab config
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
 
-vim.o.scrolloff = 2                    -- keep some context when scrolling
-vim.o.sidescrolloff = 5                -- keep some context when scrolling side to side
+-- add scrolling context
+opt.scrolloff = 2
+opt.sidescrolloff = 5
 
-vim.o.fillchars='eob: '                -- hide the ~ for blank lines
+-- backups and swp files
+opt.backup = false                   -- don't keep backups after close
+opt.writebackup = false              -- don't keep backups while working
+opt.swapfile = false                 -- don't need swp files
 
+-- search config
+opt.ignorecase = true                -- make searces case insensitive
+opt.smartcase = true                 -- care about case sensitivity
+opt.clipboard:append('unnamed')      -- Yank to the * register (system clipboard) to easily paste into other apps.
 
-vim.o.backup = false                   -- don't keep backups after close
-vim.o.writebackup = false              -- don't keep backups while working
-vim.o.swapfile = false                 -- don't need swp files
+-- completion config
+opt.completeopt = {'longest', 'menu', 'preview'}
+opt.complete = {'.'}
 
-vim.o.ignorecase = true                -- make searces case insensitive
-vim.o.smartcase = true                 -- care about case sensitivity
+opt.fillchars='eob: '                -- hide the ~ for blank lines
+opt.cmdheight = 2                    -- improve display of error messages
+opt.history = 1000                   -- lots of command line history
+opt.hidden = true                    -- enable background buffers
+opt.autoread = true                  -- reload files changed outside of vim
+opt.autowrite = true                 -- some commands ought to cause an automatic write
+cmd('au FocusLost * :wall')          -- write all named, changed buffers when vim loses focus
 
-vim.opt.completeopt = {'longest', 'menu', 'preview'}
-vim.opt.complete = {'.'}
-
-vim.opt.grepprg = 'rg --vimgrep --follow --color=never'
-
-vim.cmd('colorscheme base16-default-dark')
-
+opt.grepprg = 'rg --vimgrep --follow --color=never'
+cmd('colorscheme base16-default-dark')
 
 require('packer').startup(function(use)
-  -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   use 'duff/vim-trailing-whitespace'
+  use "nvim-lua/plenary.nvim"
+  use "tpope/vim-unimpaired"
+  use 'tpope/vim-commentary'
+  use 'nvim-tree/nvim-tree.lua'
+  use 'Shatur/neovim-session-manager'
 end)
 
 
 -- Mappings
 vim.g.mapleader = ','
-vim.keymap.set('n', '<leader>w', ':w<CR>')
-vim.keymap.set('n', '<leader>q', ':q<CR>')
-vim.keymap.set('n', '<leader>h', ':FixWhitespace<CR>')
 
-vim.keymap.set('n', '<leader>c', ':sp $MYVIMRC<CR>')
-vim.keymap.set('n', '<leader>C', ':source $MYVIMRC<CR>:exe "echo \'init.lua reloaded\'"<CR>')
+bind('n', '<leader>w', ':w<CR>')
+bind('n', '<leader>q', ':q<CR>')
+bind('n', '<leader>h', ':FixWhitespace<CR>')
+
+bind('n', '<leader>c', ':sp $MYVIMRC<CR>')
+bind('n', '<leader>C', ':source $MYVIMRC<CR>:exe "echo \'init.lua reloaded\'"<CR>')
+
+-- Move between windows
+bind('n', '<C-J>', '<C-w>j')
+bind('n', '<C-K>', '<C-w>k')
+bind('n', '<C-H>', '<C-w>h')
+bind('n', '<C-L>', '<C-w>l')
+
+-- Make splits
+bind('n', '<leader>s', ':sp<cr><C-w>j')
+bind('n', '<leader>v', ':vsp<cr><C-w>l')
+
+-- Normal mode shortcuts
+bind('n', '<leader><Enter>', 'O<Esc>j')
+bind('n', '<leader><space>', 'i<space><Esc>')
+
+-- Session shortcuts
+bind('n', '<leader>p', ':SessionManager load_session<CR>')
+
+-- Nvim tree config
+bind('n', '<leader>n', ':NvimTreeFindFile<CR>')
+bind('n', '<leader>d', ':NvimTreeToggle<CR>')
+
+-- Easier to get to beginning/end of line
+bind('', 'gl', 'g_')
+bind('', 'gh', '^')
+
+-- bubble lines
+bind('n', '<M-o>ptionk', '[e', remap)
+bind('n', '<M-o>ptionj', ']e', remap)
+bind('v', '<M-o>ptionk', '[egv', remap)
+bind('v', '<M-o>ptionj', ']egv', remap)
 
 
+require('session_manager').setup({
+  autoload_mode = require('session_manager.config').AutoloadMode.Disabled
+})
+
+require("nvim-tree").setup({
+  view = {
+    adaptive_size = true,
+    mappings = {
+      list = {
+        { key = "u", action = "dir_up" },
+        { key = "C", action = "cd" },
+      },
+    },
+  },
+  actions = {
+    open_file = {
+      window_picker = {
+        enable = false
+      },
+    },
+  },
+  renderer = {
+    icons = {
+      show = {
+        file = false,
+        folder = false,
+        git = false
+      }
+    }
+  },
+})
