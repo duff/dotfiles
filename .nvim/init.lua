@@ -41,9 +41,10 @@ opt.history = 1000                   -- lots of command line history
 opt.hidden = true                    -- enable background buffers
 opt.autoread = true                  -- reload files changed outside of vim
 opt.autowrite = true                 -- some commands ought to cause an automatic write
-cmd('au FocusLost * :wall')          -- write all named, changed buffers when vim loses focus
 
-opt.grepprg = 'rg --vimgrep --follow --color=never'
+-- opt.grepprg = 'rg --vimgrep --follow --color=never'
+
+cmd('au FocusLost * :wall')          -- write all named, changed buffers when vim loses focus
 cmd('colorscheme base16-default-dark')
 
 require('packer').startup(function(use)
@@ -55,6 +56,7 @@ require('packer').startup(function(use)
   use 'nvim-tree/nvim-tree.lua'
   use 'Shatur/neovim-session-manager'
   use 'nvim-treesitter/nvim-treesitter'
+  use 'nvim-telescope/telescope.nvim'
 end)
 
 
@@ -88,6 +90,10 @@ bind('n', '<leader>p', ':SessionManager load_session<CR>')
 -- Nvim tree config
 bind('n', '<leader>n', ':NvimTreeFindFile<CR>')
 bind('n', '<leader>d', ':NvimTreeToggle<CR>')
+
+-- Telescope config
+local builtin = require('telescope.builtin')
+bind('n', '<leader>f', builtin.find_files, {})
 
 -- Easier to get to beginning/end of line
 bind('', 'gl', 'g_')
@@ -146,3 +152,4 @@ require("nvim-tree").setup({
     }
   },
 })
+
