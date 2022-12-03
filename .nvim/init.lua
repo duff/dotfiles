@@ -51,6 +51,7 @@ cmd('colorscheme base16-default-dark')
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'duff/vim-trailing-whitespace'
+  use 'duff/vim-commaobject'
   use 'nvim-lua/plenary.nvim'
   use 'nvim-tree/nvim-tree.lua'
   use 'Shatur/neovim-session-manager'
@@ -63,6 +64,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'tpope/vim-endwise'
   use 'tpope/vim-fugitive'
+  use 'tpope/vim-repeat'
 end)
 
 
