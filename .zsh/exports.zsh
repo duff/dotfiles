@@ -20,9 +20,6 @@ export CLICOLOR=1
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='3;33'
 
-export GIT_EDITOR="vim"
-export EDITOR='vim'
-
 # rg is really fast - use it to give fzf its file list
 # show hidden files but ignore the git directory
 export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!.git'"

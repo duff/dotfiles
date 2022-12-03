@@ -50,14 +50,17 @@ cmd('colorscheme base16-default-dark')
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'duff/vim-trailing-whitespace'
-  use "nvim-lua/plenary.nvim"
-  use "tpope/vim-unimpaired"
-  use 'tpope/vim-commentary'
+  use 'nvim-lua/plenary.nvim'
   use 'nvim-tree/nvim-tree.lua'
   use 'Shatur/neovim-session-manager'
   use 'nvim-treesitter/nvim-treesitter'
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-ui-select.nvim'
+  use 'mhinz/vim-mix-format'
+  use 'tpope/vim-unimpaired'
+  use 'tpope/vim-commentary'
+  use 'tpope/vim-surround'
+  use 'tpope/vim-endwise'
 end)
 
 
@@ -85,9 +88,6 @@ bind('n', '<leader>v', ':vsp<cr><C-w>l')
 bind('n', '<leader><Enter>', 'O<Esc>j')
 bind('n', '<leader><space>', 'i<space><Esc>')
 
--- Session shortcuts
-bind('n', '<leader>p', ':SessionManager load_session<CR>')
-
 -- Nvim tree config
 bind('n', '<leader>n', ':NvimTreeFindFile<CR>')
 bind('n', '<leader>d', ':NvimTreeToggle<CR>')
@@ -98,6 +98,7 @@ bind('n', '<leader>ff', builtin.find_files, {})
 bind('n', '<leader>fg', builtin.live_grep, {})
 bind('n', '<leader>fh', builtin.help_tags, {})
 bind('n', '<leader>fw', builtin.grep_string, {})
+bind('n', '<leader>fs', ':SessionManager load_session<CR>')
 
 -- Easier to get to beginning/end of line
 bind('', 'gl', 'g_')
@@ -108,6 +109,9 @@ bind('n', '<M-o>ptionk', '[e', remap)
 bind('n', '<M-o>ptionj', ']e', remap)
 bind('v', '<M-o>ptionk', '[egv', remap)
 bind('v', '<M-o>ptionj', ']egv', remap)
+
+-- Elixir shortcuts
+bind('n', '<leader>o', [[:w<CR>:MixFormat<CR>:exe "echo 'Format Complete'"<CR>]])
 
 
 require('nvim-treesitter.configs').setup {
