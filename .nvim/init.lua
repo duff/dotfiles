@@ -94,7 +94,10 @@ bind('n', '<leader>d', ':NvimTreeToggle<CR>')
 
 -- Telescope config
 local builtin = require('telescope.builtin')
-bind('n', '<leader>f', builtin.find_files, {})
+bind('n', '<leader>ff', builtin.find_files, {})
+bind('n', '<leader>fg', builtin.live_grep, {})
+bind('n', '<leader>fh', builtin.help_tags, {})
+bind('n', '<leader>fw', builtin.grep_string, {})
 
 -- Easier to get to beginning/end of line
 bind('', 'gl', 'g_')
