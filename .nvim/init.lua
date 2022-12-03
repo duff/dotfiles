@@ -25,6 +25,7 @@ opt.sidescrolloff = 5
 opt.backup = false                   -- don't keep backups after close
 opt.writebackup = false              -- don't keep backups while working
 opt.swapfile = false                 -- don't need swp files
+opt.hidden = true                    -- let me leave buffers if they're unchanged
 
 -- search config
 opt.ignorecase = true                -- make searces case insensitive
@@ -61,6 +62,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
   use 'tpope/vim-endwise'
+  use 'tpope/vim-rhubarb'
 end)
 
 
@@ -69,6 +71,7 @@ vim.g.mapleader = ','
 
 bind('n', '<leader>w', ':w<CR>')
 bind('n', '<leader>q', ':q<CR>')
+bind('n', '<leader>x', ':x<CR>')
 bind('n', '<leader>h', ':FixWhitespace<CR>')
 
 bind('n', '<leader>c', ':sp $MYVIMRC<CR>')
