@@ -57,6 +57,7 @@ require('packer').startup(function(use)
   use 'Shatur/neovim-session-manager'
   use 'nvim-treesitter/nvim-treesitter'
   use 'nvim-telescope/telescope.nvim'
+  use 'nvim-telescope/telescope-ui-select.nvim'
 end)
 
 
@@ -153,3 +154,4 @@ require("nvim-tree").setup({
   },
 })
 
+require("telescope").load_extension("ui-select")
