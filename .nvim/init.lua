@@ -107,7 +107,7 @@ bind('v', '<M-o>ptionk', '[egv', remap)
 bind('v', '<M-o>ptionj', ']egv', remap)
 
 
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup {
   -- A list of parser names, or "all"
   ensure_installed = "all",
 
@@ -153,5 +153,18 @@ require("nvim-tree").setup({
     }
   },
 })
+require('telescope').setup({
+  defaults = {
+    file_ignore_patterns = { "^.git/" },
+    vimgrep_arguments = { "rg", "--color=never", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case", "--hidden" },
+  },
+  pickers = {
+    find_files = {
+      hidden = true
+    },
+  }
+})
 
 require("telescope").load_extension("ui-select")
+
+
