@@ -43,6 +43,13 @@ opt.hidden = true                    -- enable background buffers
 opt.autoread = true                  -- reload files changed outside of vim
 opt.autowrite = true                 -- some commands ought to cause an automatic write
 
+-- persistent undo
+opt.undofile = true
+opt.undodir = '/Users/duff/.vim/.undo'
+
+opt.completeopt = 'longest,menu,preview'
+opt.complete = '.'
+
 -- opt.grepprg = 'rg --vimgrep --follow --color=never'
 
 cmd('au FocusLost * :wall')          -- write all named, changed buffers when vim loses focus
@@ -117,6 +124,15 @@ bind('v', '<M-o>ptionj', ']egv', remap)
 
 -- Elixir shortcuts
 bind('n', '<leader>o', [[:w<CR>:MixFormat<CR>:exe "echo 'Format Complete'"<CR>]])
+
+-- auto complete shortcuts
+bind('i', '<S-space>', '<C-n>')
+
+-- resize windows
+bind('n', '<C-Left>', '<C-W><<C-W><')
+bind('n', '<C-Right>', '<C-W>><C-W>>')
+bind('n', '<C-Up>', '<C-W>+<C-W>+')
+bind('n', '<C-Down>', '<C-W>-<C-W>-')
 
 
 require('nvim-treesitter.configs').setup {
