@@ -1,3 +1,6 @@
+
+
+
 -- disable netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -45,7 +48,7 @@ opt.autowrite = true                 -- some commands ought to cause an automati
 
 -- persistent undo
 opt.undofile = true
-opt.undodir = '/Users/duff/.vim/.undo'
+opt.undodir = vim.fn.stdpath("data") .. '/undo'
 
 opt.completeopt = 'longest,menu,preview'
 opt.complete = '.'
@@ -72,6 +75,8 @@ require('packer').startup(function(use)
   use 'tpope/vim-endwise'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-repeat'
+  use 'neovim/nvim-lspconfig'
+  use 'hrsh7th/nvim-cmp'
 end)
 
 
@@ -195,5 +200,4 @@ require('telescope').setup({
 })
 
 require("telescope").load_extension("ui-select")
-
 
