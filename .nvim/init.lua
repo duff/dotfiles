@@ -1,10 +1,3 @@
-
-
-
--- disable netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
 local bind = vim.keymap.set
 local cmd = vim.cmd
 local opt = vim.opt
@@ -53,7 +46,9 @@ opt.undodir = vim.fn.stdpath("data") .. '/undo'
 opt.completeopt = 'longest,menu,preview'
 opt.complete = '.'
 
--- opt.grepprg = 'rg --vimgrep --follow --color=never'
+-- disable netrw per the suggestion of nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 cmd('au FocusLost * :wall')          -- write all named, changed buffers when vim loses focus
 cmd('colorscheme base16-default-dark')
