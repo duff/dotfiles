@@ -72,6 +72,8 @@ require('packer').startup(function(use)
   use 'tpope/vim-repeat'
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
 end)
 
 
@@ -136,6 +138,11 @@ bind('n', '<C-Up>', '<C-W>+<C-W>+')
 bind('n', '<C-Down>', '<C-W>-<C-W>-')
 
 
+require('session_manager').setup({ autoload_mode = require('session_manager.config').AutoloadMode.Disabled })
+require("telescope").load_extension("ui-select")
+require("mason").setup()
+require("mason-lspconfig").setup({ ensure_installed = { "elixirls" } })
+
 require('nvim-treesitter.configs').setup {
   -- A list of parser names, or "all"
   ensure_installed = "all",
@@ -147,10 +154,6 @@ require('nvim-treesitter.configs').setup {
     enable = true,
   }
 }
-
-require('session_manager').setup({
-  autoload_mode = require('session_manager.config').AutoloadMode.Disabled
-})
 
 require("nvim-tree").setup({
   -- ensure it reflects the right parent directory
@@ -182,6 +185,7 @@ require("nvim-tree").setup({
     }
   },
 })
+
 require('telescope').setup({
   defaults = {
     file_ignore_patterns = { "^.git/" },
@@ -194,5 +198,18 @@ require('telescope').setup({
   }
 })
 
-require("telescope").load_extension("ui-select")
+local on_attach = function(client, bufnr)
+  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+end
+
+require('lspconfig')['elixirls'].setup({
+  on_attach = on_attach,
+  elixirLS = {
+    dialyzerEnabled = false
+  };
+})
+
 
