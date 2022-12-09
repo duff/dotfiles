@@ -113,6 +113,7 @@ bind('n', '<leader>ff', builtin.find_files, {})
 bind('n', '<leader>fg', builtin.live_grep, {})
 bind('n', '<leader>fh', builtin.help_tags, {})
 bind('n', '<leader>fw', builtin.grep_string, {})
+bind('n', '<leader>ft', builtin.treesitter, {})
 bind('n', '<leader>fs', ':SessionManager load_session<CR>')
 
 -- Easier to get to beginning/end of line
@@ -202,7 +203,7 @@ local on_attach = function(client, bufnr)
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', 'gr', builtin.lsp_references, bufopts)
 end
 
 require('lspconfig')['elixirls'].setup({
