@@ -74,6 +74,8 @@ require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
+  use 'kana/vim-textobj-user'
+  use 'kana/vim-textobj-entire'
 end)
 
 
@@ -199,7 +201,7 @@ require('telescope').setup({
   }
 })
 
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
@@ -212,5 +214,4 @@ require('lspconfig')['elixirls'].setup({
     dialyzerEnabled = false
   };
 })
-
 
