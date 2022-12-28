@@ -118,6 +118,10 @@ bind('n', '<leader>fw', builtin.grep_string, {})
 bind('n', '<leader>ft', builtin.treesitter, {})
 bind('n', '<leader>fs', ':SessionManager load_session<CR>')
 
+-- Navigating the quickfix window
+bind('n', '<leader>1', ':cprevious <CR>')
+bind('n', '<leader>2', ':cnext <CR>')
+
 -- Easier to get to beginning/end of line
 bind('', 'gl', 'g_')
 bind('', 'gh', '^')
