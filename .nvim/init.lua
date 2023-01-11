@@ -38,6 +38,7 @@ opt.history = 1000                   -- lots of command line history
 opt.hidden = true                    -- enable background buffers
 opt.autoread = true                  -- reload files changed outside of vim
 opt.autowrite = true                 -- some commands ought to cause an automatic write
+opt.autoindent = true                -- automatically indent new lines
 
 -- persistent undo
 opt.undofile = true
