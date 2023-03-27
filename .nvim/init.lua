@@ -89,7 +89,7 @@ bind('n', '<leader>w', ':w<CR>')
 bind('n', '<leader>q', ':q<CR>')
 bind('n', '<leader>x', ':x<CR>')
 bind('n', '<leader>h', ':FixWhitespace<CR>')
-bind('n', '<space>', '%')
+bind('n', '<space>', '%', remap)
 
 bind('n', '<leader>c', ':sp $MYVIMRC<CR>')
 bind('n', '<leader>C', ':source $MYVIMRC<CR>:exe "echo \'init.lua reloaded\'"<CR>')
