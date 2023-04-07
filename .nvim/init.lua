@@ -154,10 +154,7 @@ require("mason").setup()
 require("mason-lspconfig").setup({ ensure_installed = { "elixirls" } })
 
 require('nvim-treesitter.configs').setup {
-  -- A list of parser names, or "all"
   ensure_installed = "all",
-
-  -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
 
   highlight = {
@@ -221,8 +218,14 @@ end
 
 require('lspconfig')['elixirls'].setup({
   on_attach = on_attach,
+
   elixirLS = {
     dialyzerEnabled = false
   };
 })
 
+vim.diagnostic.config({
+  virtual_text = false,
+  signs = false,
+  underline = false
+})
