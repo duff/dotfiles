@@ -75,8 +75,6 @@ require('packer').startup(function(use)
   use 'tpope/vim-repeat'
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
   use 'kana/vim-textobj-user'
   use 'kana/vim-textobj-entire'
 end)
@@ -150,11 +148,11 @@ bind('n', '<C-Down>', '<C-W>-<C-W>-')
 
 require('session_manager').setup({ autoload_mode = require('session_manager.config').AutoloadMode.Disabled })
 require("telescope").load_extension("ui-select")
-require("mason").setup()
-require("mason-lspconfig").setup({ ensure_installed = { "elixirls" } })
 
 require('nvim-treesitter.configs').setup {
-  ensure_installed = "all",
+  -- ensure_installed = "all",
+
+  ensure_installed = { "angular", "awk", "bash", "c", "c_sharp", "clojure", "cmake", "comment", "commonlisp", "cpp", "css", "csv", "diff", "eex", "elixir", "elm", "erlang", "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore", "go", "graphql", "haskell", "haskell_persistent", "heex", "html", "http", "ini", "java", "javascript", "json", "json5", "julia", "latex", "lua", "luadoc", "luau", "make", "markdown", "markdown_inline", "pascal", "passwd", "pem", "perl", "php", "php_only", "phpdoc", "python", "r", "racket", "regex", "ruby", "rust", "scala", "scheme", "scss", "sql", "ssh_config", "swift", "vim", "vimdoc", "xml", "yaml" },
   sync_install = false,
 
   highlight = {
@@ -172,12 +170,12 @@ require("nvim-tree").setup({
 
   view = {
     adaptive_size = true,
-    mappings = {
-      list = {
-        { key = "u", action = "dir_up" },
-        { key = "C", action = "cd" },
-      },
-    },
+    -- mappings = {
+    --   list = {
+    --     { key = "u", action = "dir_up" },
+    --     { key = "C", action = "cd" },
+    --   },
+    -- },
   },
   actions = {
     open_file = {
@@ -215,14 +213,6 @@ local on_attach = function(_, bufnr)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', 'gr', builtin.lsp_references, bufopts)
 end
-
-require('lspconfig')['elixirls'].setup({
-  on_attach = on_attach,
-
-  elixirLS = {
-    dialyzerEnabled = false
-  };
-})
 
 vim.diagnostic.config({
   virtual_text = false,
