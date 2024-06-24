@@ -53,6 +53,12 @@ vim.g.loaded_netrwPlugin = 1
 
 cmd('au FocusLost * :wall')          -- write all named, changed buffers when vim loses focus
 cmd('colorscheme base16-default-dark')
+cmd('highlight Normal guibg=#000000')  -- Set background color to true black
+
+-- Add filetype detection for .usx files
+cmd([[
+  autocmd BufRead,BufNewFile *.usx set filetype=xml
+]])
 
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
