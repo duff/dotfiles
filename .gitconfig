@@ -60,6 +60,7 @@
 
 [init]
   templatedir = ~/.git_template
+	defaultBranch = master
 
 [core]
   excludesfile = /Users/duff/.gitignore
