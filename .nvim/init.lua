@@ -67,7 +67,7 @@ require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
   use 'nvim-tree/nvim-tree.lua'
   use 'Shatur/neovim-session-manager'
-  use 'nvim-treesitter/nvim-treesitter'
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-ui-select.nvim'
   use 'mhinz/vim-mix-format'
