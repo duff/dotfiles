@@ -51,7 +51,7 @@ opt.complete = '.'
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-cmd('au FocusLost * :wall')          -- write all named, changed buffers when vim loses focus
+cmd('autocmd FocusLost,WinLeave,TabLeave * wa') -- write all named, changed buffers when vim loses focus
 cmd('colorscheme base16-default-dark')
 cmd('highlight Normal guibg=#000000')  -- Set background color to true black
 
