@@ -79,7 +79,11 @@ require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'tpope/vim-repeat'
+
   use 'neovim/nvim-lspconfig'
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
+
   use 'hrsh7th/nvim-cmp'
   use 'kana/vim-textobj-user'
   use 'kana/vim-textobj-entire'
@@ -213,15 +217,40 @@ require('telescope').setup({
   }
 })
 
-local on_attach = function(_, bufnr)
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-  vim.keymap.set('n', 'gr', builtin.lsp_references, bufopts)
-end
-
 vim.diagnostic.config({
   virtual_text = false,
   signs = false,
   underline = false
 })
+
+require("mason").setup()
+require("mason-lspconfig").setup({
+  ensure_installed = { "elixirls" }
+})
+
+if not vim.g.lsp_setup_done then
+  vim.g.lsp_setup_done = true -- Mark setup as done
+
+  local lspconfig = require("lspconfig")
+  local on_attach = function(_, bufnr)
+    local bufopts = { noremap=true, silent=true, buffer=bufnr }
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  end
+
+  require("mason-lspconfig").setup_handlers({
+    function(server_name)
+      require("lspconfig")[server_name].setup({
+        on_attach = on_attach,
+        settings = {
+          elixirLS = {
+            dialyzerEnabled = false,
+            fetchDeps = false,
+          },
+        },
+        env = { ELS_MODE = "language_server" },
+      })
+    end,
+  })
+end
