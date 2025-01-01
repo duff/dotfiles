@@ -65,6 +65,7 @@ require('packer').startup(function(use)
   use 'duff/vim-trailing-whitespace'
   use 'duff/vim-commaobject'
   use 'nvim-lua/plenary.nvim'
+  use 'nvim-pack/nvim-spectre'
   use 'nvim-tree/nvim-tree.lua'
   use 'Shatur/neovim-session-manager'
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -111,6 +112,9 @@ bind('n', '<C-L>', '<C-w>l')
 -- Make splits
 bind('n', '<leader>s', ':sp<cr><C-w>j')
 bind('n', '<leader>v', ':vsp<cr><C-w>l')
+
+-- Spectre
+bind('n', '<leader>S', '<cmd>lua require("spectre").toggle()<CR>')
 
 -- Normal mode shortcuts
 bind('n', '<leader><Enter>', 'O<Esc>j')
@@ -215,6 +219,15 @@ require('telescope').setup({
       hidden = true
     },
   }
+})
+
+require('spectre').setup({
+  replace_engine = {
+    sed = {
+      cmd = "sed",
+      args = { "-i", "" },
+    },
+  },
 })
 
 vim.diagnostic.config({
