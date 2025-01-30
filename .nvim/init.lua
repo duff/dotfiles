@@ -80,6 +80,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'tpope/vim-repeat'
+  use 'github/copilot.vim'
 
   use 'neovim/nvim-lspconfig'
   use 'williamboman/mason.nvim'
@@ -152,6 +153,15 @@ bind('n', '<leader>o', [[:w<CR>:MixFormat<CR>:exe "echo 'Format Complete'"<CR>]]
 
 -- auto complete shortcuts
 bind('i', '<S-space>', '<C-n>')
+
+-- copilot shortcuts
+vim.g.copilot_no_tab_map = true
+
+bind('i', '<S-CR>', 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false,
+})
+
 
 -- resize windows
 bind('n', '<C-Left>', '<C-W><<C-W><')
