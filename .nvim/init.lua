@@ -152,15 +152,16 @@ bind('v', '<M-o>ptionj', ']egv', remap)
 bind('n', '<leader>o', [[:w<CR>:MixFormat<CR>:exe "echo 'Format Complete'"<CR>]])
 
 -- auto complete shortcuts
+bind('i', '<C-space>', '<C-n>')
 bind('i', '<S-space>', '<C-n>')
 
--- copilot shortcuts
+-- copilot config
+vim.g.copilot_enabled = false
 vim.g.copilot_no_tab_map = true
 
-bind('i', '<S-CR>', 'copilot#Accept("\\<CR>")', {
-  expr = true,
-  replace_keycodes = false,
-})
+bind('i', '<S-Space>', '<Plug>(copilot-suggest)', { silent = true })
+bind('i', '<S-CR>', 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
+bind('i', '<Tab>', '<Plug>(copilot-next)', { silent = true })
 
 
 -- resize windows
