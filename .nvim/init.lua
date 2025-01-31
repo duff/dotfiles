@@ -163,35 +163,6 @@ bind('n', '<C-Right>', '<C-W>><C-W>>')
 bind('n', '<C-Up>', '<C-W>+<C-W>+')
 bind('n', '<C-Down>', '<C-W>-<C-W>-')
 
--- Copilot config
-vim.g.copilot_enabled = false
-vim.g.copilot_no_tab_map = true
-
-bind('i', '<S-Space>', '<Plug>(copilot-suggest)', silent)
-bind('i', '<S-CR>', 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
-bind('i', '<Tab>', '<Plug>(copilot-next)', silent)
-
-
--- CopilotChat config
-bind('n', '<leader>ccq', function()
-  local input = vim.fn.input("Quick Chat: ")
-  if input ~= "" then
-    require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
-  end
-end, { desc = "CopilotChat - Quick chat" })
-
-require("CopilotChat").setup {
-  mappings = {
-    reset = {
-      normal = '',
-      insert = '',
-    },
-    toggle_sticky = {
-      normal = '',
-    },
-  },
-}
-
 require('session_manager').setup({ autoload_mode = require('session_manager.config').AutoloadMode.Disabled })
 require("telescope").load_extension("ui-select")
 
@@ -286,9 +257,9 @@ if not vim.g.lsp_setup_done then
 
   require("mason-lspconfig").setup_handlers({
     function(server_name)
-      require("lspconfig")[server_name].setup({
+      lspconfig[server_name].setup({
         on_attach = on_attach,
-        settings = {
+        settingjs = {
           elixirLS = {
             dialyzerEnabled = false,
             fetchDeps = false,
@@ -299,3 +270,71 @@ if not vim.g.lsp_setup_done then
     end,
   })
 end
+
+
+-- Copilot config
+vim.g.copilot_enabled = false
+vim.g.copilot_no_tab_map = true
+
+bind('i', '<S-Space>', '<Plug>(copilot-suggest)', silent)
+bind('i', '<S-CR>', 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
+bind('i', '<Tab>', '<Plug>(copilot-next)', silent)
+
+
+-- CopilotChat config
+
+local chat = require('CopilotChat')
+
+bind({ 'n', 'v' }, '<leader>aa', chat.open)
+bind('n', '<leader>ax', chat.reset)
+bind('n', '<leader>as', chat.stop)
+bind({ 'n', 'v' }, '<leader>aq', function()
+    vim.ui.input({
+        prompt = 'AI Question> ',
+    }, function(input)
+        if input and input ~= '' then
+            chat.ask(input)
+        end
+    end)
+end)
+
+local function dedent(str)
+  local indent = str:match("^%s*")
+  return (str:gsub("^" .. indent, ""):gsub("\n" .. indent, "\n")):gsub("\n%s+", "\n")
+end
+
+
+local base_prompt = dedent([[
+  When asked for your name, you must respond with "Duff's Copilot".
+  Follow the user's requirements carefully and to the letter.
+  Keep your answers short and impersonal.
+  The user works in an IDE called Neovim which has a concept for editors with open files.
+  The user is working on a Mac. Please respond with system specific commands if applicable.
+]])
+
+chat.setup {
+  system_prompt = "You are an AI programming assistant. " .. base_prompt,
+
+  prompts = {
+    Explain = {
+      mapping = '<leader>ae',
+      prompt = dedent([[
+        You are a world-class coding tutor.
+        Your code explanations perfectly balance high-level concepts and granular details.
+        Your approach ensures that students not only understand how to write code, but also grasp the underlying principles that guide effective programming.
+        When examining code pay close attention to diagnostics as well. When explaining diagnostics, include diagnostic content in your response.
+      ]]) .. base_prompt,
+    }
+  },
+
+  mappings = {
+    reset = {
+      normal = '',
+      insert = '',
+    },
+    toggle_sticky = {
+      normal = '',
+    },
+  },
+}
+
