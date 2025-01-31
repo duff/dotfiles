@@ -163,13 +163,16 @@ bind('n', '<C-Right>', '<C-W>><C-W>>')
 bind('n', '<C-Up>', '<C-W>+<C-W>+')
 bind('n', '<C-Down>', '<C-W>-<C-W>-')
 
--- copilot config
+-- Copilot config
 vim.g.copilot_enabled = false
 vim.g.copilot_no_tab_map = true
 
 bind('i', '<S-Space>', '<Plug>(copilot-suggest)', silent)
 bind('i', '<S-CR>', 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
 bind('i', '<Tab>', '<Plug>(copilot-next)', silent)
+
+
+-- CopilotChat config
 bind('n', '<leader>ccq', function()
   local input = vim.fn.input("Quick Chat: ")
   if input ~= "" then
@@ -180,11 +183,11 @@ end, { desc = "CopilotChat - Quick chat" })
 require("CopilotChat").setup {
   mappings = {
     reset = {
-      normal = 'gr',
+      normal = '',
       insert = '',
     },
     toggle_sticky = {
-      normal = 'gR',
+      normal = '',
     },
   },
 }
