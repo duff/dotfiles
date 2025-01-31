@@ -1,7 +1,8 @@
 local bind = vim.keymap.set
 local cmd = vim.cmd
 local opt = vim.opt
-local remap = {remap = true}
+local remap = { remap = true }
+local silent = { silent = true }
 
 opt.number = true
 opt.hlsearch = false
@@ -81,6 +82,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-rhubarb'
   use 'tpope/vim-repeat'
   use 'github/copilot.vim'
+  use 'CopilotC-Nvim/CopilotChat.nvim'
 
   use 'neovim/nvim-lspconfig'
   use 'williamboman/mason.nvim'
@@ -155,21 +157,37 @@ bind('n', '<leader>o', [[:w<CR>:MixFormat<CR>:exe "echo 'Format Complete'"<CR>]]
 bind('i', '<C-space>', '<C-n>')
 bind('i', '<S-space>', '<C-n>')
 
--- copilot config
-vim.g.copilot_enabled = false
-vim.g.copilot_no_tab_map = true
-
-bind('i', '<S-Space>', '<Plug>(copilot-suggest)', { silent = true })
-bind('i', '<S-CR>', 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
-bind('i', '<Tab>', '<Plug>(copilot-next)', { silent = true })
-
-
 -- resize windows
 bind('n', '<C-Left>', '<C-W><<C-W><')
 bind('n', '<C-Right>', '<C-W>><C-W>>')
 bind('n', '<C-Up>', '<C-W>+<C-W>+')
 bind('n', '<C-Down>', '<C-W>-<C-W>-')
 
+-- copilot config
+vim.g.copilot_enabled = false
+vim.g.copilot_no_tab_map = true
+
+bind('i', '<S-Space>', '<Plug>(copilot-suggest)', silent)
+bind('i', '<S-CR>', 'copilot#Accept("\\<CR>")', { expr = true, replace_keycodes = false })
+bind('i', '<Tab>', '<Plug>(copilot-next)', silent)
+bind('n', '<leader>ccq', function()
+  local input = vim.fn.input("Quick Chat: ")
+  if input ~= "" then
+    require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
+  end
+end, { desc = "CopilotChat - Quick chat" })
+
+require("CopilotChat").setup {
+  mappings = {
+    reset = {
+      normal = 'gr',
+      insert = '',
+    },
+    toggle_sticky = {
+      normal = 'gR',
+    },
+  },
+}
 
 require('session_manager').setup({ autoload_mode = require('session_manager.config').AutoloadMode.Disabled })
 require("telescope").load_extension("ui-select")
