@@ -155,7 +155,6 @@ bind('n', '<leader>o', [[:w<CR>:MixFormat<CR>:exe "echo 'Format Complete'"<CR>]]
 
 -- auto complete shortcuts
 bind('i', '<C-space>', '<C-n>')
-bind('i', '<S-space>', '<C-n>')
 
 -- resize windows
 bind('n', '<C-Left>', '<C-W><<C-W><')
